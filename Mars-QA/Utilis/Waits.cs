@@ -10,9 +10,9 @@ namespace Mars_QA.Utilis
 {
     public class Waits
     {
-        public static void WaitToExist(IWebDriver driver, string locatorType, string locatorValue, int seconds)
+        public static void WaitToBeClickable(IWebDriver dr, string locatorType, string locatorValue, int seconds)
         {
-            var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
+            var wait = new WebDriverWait(dr, new TimeSpan(0, 0, seconds));
 
             if (locatorType == "XPath")
             {
@@ -21,6 +21,10 @@ namespace Mars_QA.Utilis
             if (locatorType == "Id")
             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id(locatorValue)));
+            }
+            if(locatorType=="Name")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Name(locatorValue)));  
             }
             if (locatorType == "CssSelector")
             {
