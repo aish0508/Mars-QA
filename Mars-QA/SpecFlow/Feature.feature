@@ -1,21 +1,44 @@
-﻿#using StepDefinition;
+﻿
 Feature: Feature
 
-As a User Create a profile then add languages,skills
-so that recuriter see your  skills and language in dashboard
 
-@tag1
-Scenario: 1. Login with valid Details
-	Given Navigate to Profile Page
-	When In Description tab Add languages and skills
-	Then Verify by add duplicate language 
+As a User Create a Profile then add languages, skills so that recuriter see your skills and language
+in the dashboard
 
-	Scenario Outline:2. Edit the already added Language
-Given Navigate to Profile Page
-Then In Description tab Edit the language field and Skill field
+@LanguageandSkill
+Scenario: 1. Add Languages and Skills in a profile
+	Given I Logged into a portal
+	When I Clicked On Language Tab and Add Language Including '<LanguageName>' , '<LanguageType>' Afterthat Click on Skill Tab to add skill including '<SkillName>' , '<SkillType>'
+	Then Verify by adding duplicate Language and see record of language and skill including '<LanguageName>','<LanguageType>' ,'<message>' Created in the profile
+
+ Examples:   
+| LanguageName | LanguageType | SkillName           | SkillType |
+| English      | Fluent       |                     |           |
+| Spanish      | Basic        |                     |           |
+| Punjabi      | Fluent       | Performance Testing | Beginner     |
+ 
+	 Scenario Outline: 2. Edit the already added Language , Skill field with Valid Inputs and Invalid Inputs
+	 Given I Logged into a portal
+	 Then  Edit the already added Language and Skill Field including '<LanguageName>' ,'<LanguageType>','<SkillName>' ,'<SkillType>' 
+	 And And I attempt to edit with invalid language '<InvalidLanguageName>' and invalid skill '<InvalidSkillName>' ,'<message>','<message1>'
 
 
-Scenario Outline: 3.Delete the already added skills
-Given Navigate to Profile Page
-Then In Skills tab delete the language and skill
+ Examples:
+    | LanguageName       | LanguageType | SkillName | SkillType | InvalidLanguageName | InvalidSkillName |
+    | French             | Basic        | SQL       | Expert    | D344                | r666555          |
 
+
+	 
+	 Scenario Outline: 3. Delete the already added Skill
+	 Given I Logged into a portal
+	 Then I delete the selected language and skill
+     
+
+
+
+
+
+	
+	  
+
+	
