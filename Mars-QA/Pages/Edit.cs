@@ -14,6 +14,8 @@ namespace Mars_QA.Pages
     {
         public string LanguageType;
         public string StringType;
+        public string ActualMessage;
+        public string ActualMessage1;
 
         public IWebElement editicon => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
         public IWebElement EditLang => dr.FindElement(By.Name("name"));
@@ -25,8 +27,8 @@ namespace Mars_QA.Pages
         public SelectElement oselect5 => new SelectElement(dr.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/div[2]/select[1]")));
         public IWebElement UpdateSkill => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         public IWebElement LangTab => dr.FindElement(By.XPath("//a[normalize-space()='Languages']"));
-        public IWebElement AlertBox => dr.FindElement(By.XPath("/html/body/div[1]/div"));
-        public IWebElement AlertSkillBox => dr.FindElement(By.XPath("/html/body/div[1]/div"));
+        public IWebElement AlertLang => dr.FindElement(By.CssSelector("body:nth-child(2) div.ns-box.ns-growl.ns-effect-jelly.ns-type-success.ns-show:nth-child(1) > div.ns-box-inner"));
+        public IWebElement AlertSkillBox => dr.FindElement(By.CssSelector("body:nth-child(2) div.ns-box.ns-growl.ns-effect-jelly.ns-type-success.ns-show:nth-child(1) > div.ns-box-inner"));
 
         public void EditLangandSkill(string LanguageName, string LanguageType, string SkillName, string SkillType)
         {
@@ -61,7 +63,7 @@ namespace Mars_QA.Pages
             Thread.Sleep(2000);
             LangTab.Click();
         }
-        public void EditLangAndSkillWithInvalid(string InvalidLanguageName, string InvalidSkillName,string message,string message1)
+        public string EditLangAndSkillWithInvalid(string InvalidLanguageName, string InvalidSkillName)
         {
             
             //Check by adding Invalid Input in Language Field
@@ -88,10 +90,13 @@ namespace Mars_QA.Pages
             oselect5.SelectByValue("Beginner");
             UpdateSkill.Click();
             //Gathering text of Invalid language from alert popup
-            message = AlertBox.Text();
+            Thread.Sleep(4000);
+            ActualMessage = AlertLang.Text();
+            return ActualMessage;
             //Gathering text of Invalid Skill from alert popup
-            message1 =AlertSkillBox.Text();
-
+            Thread.Sleep(4000);
+            ActualMessage1=AlertSkillBox.Text();
+            return ActualMessage1;
             
 
 

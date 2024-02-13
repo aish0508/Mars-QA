@@ -77,9 +77,9 @@ namespace Mars_QA.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1. Add Languages and Skills in a profile")]
         [NUnit.Framework.CategoryAttribute("LanguageandSkill")]
-        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "", "", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", "", "", null)]
-        [NUnit.Framework.TestCaseAttribute("Punjabi", "Fluent", "Performance Testing", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Performance Testing", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", "Smoke Testing", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Performance Testing", "Beginner", null)]
         public void _1_AddLanguagesAndSkillsInAProfile(string languageName, string languageType, string skillName, string skillType, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -114,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 12
  testRunner.Then(string.Format("Verify by adding duplicate Language and see record of language and skill includin" +
-                            "g \'{0}\',\'{1}\' ,\'<message>\' Created in the profile", languageName, languageType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                            "g \'{0}\',\'{1}\' ,\'{2}\',\'{3}\' Created in the profile", languageName, languageType, skillName, skillType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -123,7 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2. Edit the already added Language , Skill field with Valid Inputs and Invalid In" +
             "puts")]
-        [NUnit.Framework.TestCaseAttribute("French", "Basic", "SQL", "Expert", "D344", "r666555", null)]
+        [NUnit.Framework.TestCaseAttribute("French", "Basic", "SQL", "Expert", "D344@rfgd$dtereerereer35464533", "r666555", null)]
         public void _2_EditTheAlreadyAddedLanguageSkillFieldWithValidInputsAndInvalidInputs(string languageName, string languageType, string skillName, string skillType, string invalidLanguageName, string invalidSkillName, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -154,8 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "}\'", languageName, languageType, skillName, skillType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
-  testRunner.And(string.Format("And I attempt to edit with invalid language \'{0}\' and invalid skill \'{1}\' ,\'<mess" +
-                            "age>\',\'<message1>\'", invalidLanguageName, invalidSkillName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.Then(string.Format("And I attempt to edit with invalid language \'{0}\' and invalid skill \'{1}\'", invalidLanguageName, invalidSkillName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

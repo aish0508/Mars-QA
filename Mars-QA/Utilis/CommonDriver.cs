@@ -19,18 +19,14 @@ namespace Mars_QA.Utilis
             //Maximize the browser
             dr.Manage().Window.Maximize();
         }
-        // Get the WebDriver instance
-        public static IWebDriver GetDriver()
-        {
-            return dr;
-        }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    // Close the browser after each test
-        //    dr.Quit();
-        //}
+
+        [TearDown]
+        public void TearDown()
+        {
+            // Close the browser after each test
+            dr.Quit();
+        }
 
     }
 }
