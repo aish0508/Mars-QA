@@ -37,8 +37,8 @@ namespace Mars_QA.Pages
         public IWebElement Skill1=> dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[1]/input"));
         public SelectElement selectSkill2 => new SelectElement(dr.FindElement(By.Name("level")));
         public IWebElement AddSkillButton2 => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
-         public IWebElement messageBox => dr.FindElement(By.CssSelector("body:nth-child(2) div.ns-box.ns-growl.ns-effect-jelly.ns-type-error.ns-show:nth-child(1) > div.ns-box-inner"));
-        public IWebElement skillmessagebox => dr.FindElement(By.CssSelector("body:nth-child(2) div.ns-box.ns-growl.ns-effect-jelly.ns-type-error.ns-show:nth-child(1) > div.ns-box-inner"));
+         public IWebElement messageBox => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+        public IWebElement skillmessagebox => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement Cancel => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
        
 

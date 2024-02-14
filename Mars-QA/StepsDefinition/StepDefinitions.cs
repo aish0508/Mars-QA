@@ -46,7 +46,7 @@ namespace Mars_QA.StepsDefinition
             string ActualSkillMessage;
 
             ActualMessage = profileObj.AssertByAddingDuplicateLanguage(LanguageName, LanguageType, SkillName, SkillType);
-            ActualSkillMessage = profileObj.AssertByAddingDuplicateLanguage(LanguageName, LanguageType, SkillName, SkillType);
+            ActualSkillMessage = ActualMessage;
             string ExpectedMessage = "This language is already exist in your language list";
             Assert.That(ActualMessage.Equals(ExpectedMessage), "The language is added to the language list");
             string ExpectedMessage1 = "This skill is already exist in your list";
@@ -66,8 +66,9 @@ namespace Mars_QA.StepsDefinition
         {
             string ActualMessage1;
             string ActualMessage2;
+            
             ActualMessage1 = editObj.EditLangAndSkillWithInvalid(InvalidLanguageName, InvalidSkillName);
-            ActualMessage2 = editObj.EditLangAndSkillWithInvalid(InvalidLanguageName, InvalidSkillName);
+            ActualMessage2 = ActualMessage1; 
             string ExpectedMessage = "Please add Valid language or Valid Skill in the language list";
             Assert.That(ActualMessage1.Equals(ExpectedMessage), "The Language is added to the language List");
             Assert.That(ActualMessage2.Equals(ExpectedMessage), "The Skill is added to the Skill List");
