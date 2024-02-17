@@ -78,8 +78,8 @@ namespace Mars_QA.SpecFlow
         [NUnit.Framework.DescriptionAttribute("1. Add Languages and Skills in a profile")]
         [NUnit.Framework.CategoryAttribute("LanguageandSkill")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Performance Testing", "Beginner", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", "Smoke Testing", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Performance Testing", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", "Smoke Testing", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Performance Testing", "Begineer", null)]
         public void _1_AddLanguagesAndSkillsInAProfile(string languageName, string languageType, string skillName, string skillType, string[] exampleTags)
         {
             string[] @__tags = new string[] {

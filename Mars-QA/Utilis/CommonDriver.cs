@@ -25,7 +25,7 @@ namespace Mars_QA.Utilis
         public void TearDown()
         {
             // Close the browser after each test
-            dr.Quit();
+            dr.Close();
         }
 
     }
