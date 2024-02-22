@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mars-QA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c25e2a2f270edef9f883ecdcacb5dd14170386b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb49a458ac09fdd548ea720549f655013f42cc10")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mars-QA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mars-QA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

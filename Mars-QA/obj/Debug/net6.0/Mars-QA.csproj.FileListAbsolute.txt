@@ -34,7 +34,6 @@ C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\Micro
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\NuGet.Frameworks.dll
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\nunit.framework.legacy.dll
 C:\Users\owner\OneDrive\Documents\Mars-QA\Mars-QA\Mars-QA\bin\Debug\net6.0\Pj.Library.dll

@@ -14,8 +14,9 @@ Scenario: 1. Add Languages and Skills in a profile
  Examples:   
 | LanguageName | LanguageType | SkillName           | SkillType |
 | English      | Fluent       | Performance Testing | Beginner  |
+| English      | Fluent       | Performance Testing | Beginner  |
 | Spanish      | Basic        | Smoke Testing       | Beginner  |
-| English      | Fluent       | Performance Testing | Begineer  |
+
  
 	 Scenario Outline: 2. Edit the already added Language , Skill field with Valid Inputs and Invalid Inputs
 	 Given I Logged into a portal

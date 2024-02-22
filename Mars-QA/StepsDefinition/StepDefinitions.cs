@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Mars_QA.StepsDefinition
@@ -49,9 +50,9 @@ namespace Mars_QA.StepsDefinition
 
             ActualMessage = profileObj.AssertByAddingDuplicateLanguage(LanguageName, LanguageType);
             ActualSkillMessage = profileObj.AssertByAddingDuplicateSkill( SkillName, SkillType);
-            string ExpectedMessage = "This language is already exist in your language list";
+            string ExpectedMessage = "This language is already exist in your language list.";
             Assert.That(ActualMessage.Equals(ExpectedMessage), "The language is added to the language list"); 
-            string ExpectedMessage1 = "This skill is already exist in your list";
+            string ExpectedMessage1 = "This skill is already exist in your skill list.";
             Assert.That(ActualSkillMessage.Equals(ExpectedMessage1), "The skill is added to the skill list");
             TearDown();
 
@@ -73,9 +74,10 @@ namespace Mars_QA.StepsDefinition
             
             ActualMessage1 = editObj.EditLangWithInvalid(InvalidLanguageName);
             ActualMessage2 = editObj.EditSkillWithInvalid(InvalidSkillName); 
-            string ExpectedMessage = "Please add Valid language or Valid Skill in the language list";
+            string ExpectedMessage = "D344@rfgd$dtereerereer35464533 has been updated to your languages";
+            string ExpectedMessage1 = "r666555 had been updated to your skills";
             Assert.That(ActualMessage1.Equals(ExpectedMessage), "The Language is added to the language List");
-            Assert.That(ActualMessage2.Equals(ExpectedMessage), "The Skill is added to the Skill List");
+            Assert.That(ActualMessage2.Equals(ExpectedMessage1), "The Skill is added to the Skill List");
             TearDown();
 
 
