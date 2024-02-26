@@ -27,13 +27,13 @@ namespace Mars_QA.Pages
         public SelectElement oselect5 => new SelectElement(dr.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/div[2]/select[1]")));
         public IWebElement UpdateSkill => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         public IWebElement LangTab => dr.FindElement(By.XPath("//a[normalize-space()='Languages']"));
-        public IWebElement AlertLang => dr.FindElement(By.XPath("/html/body/div[1]/div"));
+        public IWebElement AlertLang => dr.FindElement(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-success ns-show ns-box-inner']")); 
         public IWebElement AlertSkillBox => dr.FindElement(By.XPath("//div[@class='ns-box-inner'][1]"));
 
         public void EditLangandSkill(string LanguageName, string LanguageType, string SkillName, string SkillType)
         {
 
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             //click on edit Icon of language
             editicon.Click();
             Thread.Sleep(3000);
@@ -58,16 +58,16 @@ namespace Mars_QA.Pages
             //Select the new skill type
             oselect5.SelectByValue(SkillType);
             //Update  new skill in the profile
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             UpdateSkill.Click();
             Thread.Sleep(2000);
-            LangTab.Click();
+            
         }
         public string EditLangWithInvalid(string InvalidLanguageName)
         {
-            
+            LangTab.Click();
             //Check by adding Invalid Input in Language Field
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             editicon.Click();
             EditLang.Clear();
             Thread.Sleep(2000);
@@ -85,8 +85,9 @@ namespace Mars_QA.Pages
             Thread.Sleep(2000);
             SkillInput.Clear();
             //Gathering text of Invalid language from alert popup
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             ActualMessage = AlertLang.Text();
+            Console.WriteLine(ActualMessage);
             return ActualMessage;
            
 
@@ -95,6 +96,8 @@ namespace Mars_QA.Pages
         {
             Thread.Sleep(1000);
             //Enter Invalid input in skill name field
+            SkillInput.Clear();
+            Thread.Sleep(1000);
             SkillInput.SendKeys(InvalidSkillName);
             //Enter Invalid input in skill type field
             Thread.Sleep(1000);
@@ -103,6 +106,7 @@ namespace Mars_QA.Pages
             //Gathering text of Invalid Skill from alert popup
             Thread.Sleep(2000);
             ActualMessage1 = AlertSkillBox.Text();
+            Console.WriteLine(ActualMessage1);
             return ActualMessage1;
         }
         
