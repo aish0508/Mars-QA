@@ -152,7 +152,7 @@ testRunner.When(string.Format("User leaves language textbox including  \'{0}\' ,
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3.Verify by adding existing Language and  skill in the  profile")]
-        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "API Testing", "Expert", "This language is already exit in your language list.", "This skill is already exit in your skill list.", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "API Testing", "Expert", "This language is already exist in your language list.", "This skill is already exist in your skill list.", null)]
         public void _3_VerifyByAddingExistingLanguageAndSkillInTheProfile(string languageName, string languageType, string skillName, string skillType, string langMessage, string skillMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -189,10 +189,9 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("4. Edit the already added Language , Skill field with Valid Inputs and Invalid In" +
-            "puts")]
-        [NUnit.Framework.TestCaseAttribute("French", "Basic", "SQL", "Expert", "D344@rfgd$dtereere+=reer3", "r666555", null)]
-        public void _4_EditTheAlreadyAddedLanguageSkillFieldWithValidInputsAndInvalidInputs(string languageName, string languageType, string skillName, string skillType, string invalidLanguageName, string invalidSkillName, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("4. Edit the already added Language , Skill field with Valid Inputs")]
+        [NUnit.Framework.TestCaseAttribute("French", "Basic", "SQL", "Expert", "French has been updated to your languages", "SQL has been updated to your skills", null)]
+        public void _4_EditTheAlreadyAddedLanguageSkillFieldWithValidInputs(string languageName, string languageType, string skillName, string skillType, string messageWithValidLang, string messageWithValidSkill, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -200,10 +199,9 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
             argumentsOfScenario.Add("LanguageType", languageType);
             argumentsOfScenario.Add("SkillName", skillName);
             argumentsOfScenario.Add("SkillType", skillType);
-            argumentsOfScenario.Add("InvalidLanguageName", invalidLanguageName);
-            argumentsOfScenario.Add("InvalidSkillName", invalidSkillName);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. Edit the already added Language , Skill field with Valid Inputs and Invalid In" +
-                    "puts", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("MessageWithValidLang", messageWithValidLang);
+            argumentsOfScenario.Add("MessageWithValidSkill", messageWithValidSkill);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. Edit the already added Language , Skill field with Valid Inputs", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 41
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -218,24 +216,60 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
   testRunner.Given("I Logged into a portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 43
-  testRunner.Then(string.Format("Edit the already added Language and Skill Field including \'{0}\' ,\'{1}\',\'{2}\' ,\'{3" +
-                            "}\'", languageName, languageType, skillName, skillType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.When(string.Format("Edit the already added Language and Skill Field including \'{0}\' ,\'{1}\'and\'{2}\' ,\'" +
+                            "{3}\'", languageName, languageType, skillName, skillType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 44
-  testRunner.Then(string.Format("And I attempt to edit with invalid language \'{0}\' and invalid skill \'{1}\'", invalidLanguageName, invalidSkillName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("AlertMessage \'<MessagewithValidLanguage>\' and \'<MessagewithValidSkill>\' should be" +
+                        " display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("5. Delete the already added Skill")]
-        public void _5_DeleteTheAlreadyAddedSkill()
+        [NUnit.Framework.DescriptionAttribute("5.Edit the already added language and skill with Invalid Input")]
+        [NUnit.Framework.TestCaseAttribute("D344@rfgd$dtereere+=reer3", "r5676@e", "D344@rfgd$dtereerereer35464533 has been updated to your languages", "r5676@e has been updated to your skills", null)]
+        public void _5_EditTheAlreadyAddedLanguageAndSkillWithInvalidInput(string invalidLanguageName, string invalidSkillName, string messageWithInvalidLang, string messageWithInvalidSkill, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("InvalidLanguageName", invalidLanguageName);
+            argumentsOfScenario.Add("InvalidSkillName", invalidSkillName);
+            argumentsOfScenario.Add("MessageWithInvalidLang", messageWithInvalidLang);
+            argumentsOfScenario.Add("MessageWithInvalidSkill", messageWithInvalidSkill);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5.Edit the already added language and skill with Invalid Input", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 54
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 55
+ testRunner.Given("I Logged into a portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 56
+    testRunner.When(string.Format("Edit the added language and skill with invalid inputs including \'{0}\' and \'{1}\'", invalidLanguageName, invalidSkillName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 57
+ testRunner.Then(string.Format("Message1 \'{0}\' and \'<MessagewithInvalidSkill>\' should be display", messageWithInvalidLang), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("6. Delete the already added Skill")]
+        public void _6_DeleteTheAlreadyAddedSkill()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5. Delete the already added Skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 55
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6. Delete the already added Skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 64
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -245,10 +279,10 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
             else
             {
                 this.ScenarioStart();
-#line 56
+#line 65
   testRunner.Given("I Logged into a portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 57
+#line 66
   testRunner.Then("I delete the selected language and skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

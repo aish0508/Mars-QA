@@ -173,11 +173,11 @@ namespace Mars_QA.Pages
                 Console.WriteLine(LanguageMessage);
             }
 
-            else
-            {
-                Console.WriteLine("Do not return anything");
+            //else
+            //{
+            //    Console.WriteLine("Do not return anything");
 
-            }
+            //}
             
             return LanguageMessage;
         }
@@ -188,11 +188,11 @@ namespace Mars_QA.Pages
                 Console.WriteLine(SkillMessage);
             }
 
-            else
-            {
-                Console.WriteLine("Do not return anything");
-                return ("nothing");
-            }
+            //else
+            //{
+            //    Console.WriteLine("Do not return anything");
+            //    return ("nothing");
+            //}
             
             return SkillMessage;
         }

@@ -36,23 +36,32 @@ When user adding by existing language including '<LanguageName>','<LanguageType>
 Then Message '<LangMessage>' and '<SkillMessage>' should be display
 Examples: 
 | LanguageName | LanguageType | SkillName   | SkillType | LangMessage                                          | SkillMessage                                   |
-| English      | Fluent       | API Testing | Expert    | This language is already exit in your language list. | This skill is already exit in your skill list. |
+| English      | Fluent       | API Testing | Expert    | This language is already exist in your language list. | This skill is already exist in your skill list. |
  
-	 Scenario Outline: 4. Edit the already added Language , Skill field with Valid Inputs and Invalid Inputs
+	 Scenario Outline: 4. Edit the already added Language , Skill field with Valid Inputs 
 	 Given I Logged into a portal
-	 Then  Edit the already added Language and Skill Field including '<LanguageName>' ,'<LanguageType>','<SkillName>' ,'<SkillType>' 
-	 Then And I attempt to edit with invalid language '<InvalidLanguageName>' and invalid skill '<InvalidSkillName>' 
+	 When Edit the already added Language and Skill Field including '<LanguageName>' ,'<LanguageType>'and'<SkillName>' ,'<SkillType>' 
+	 Then  AlertMessage '<MessagewithValidLanguage>' and '<MessagewithValidSkill>' should be display
+	 
+	 #Then And I attempt to edit with invalid language '<InvalidLanguageName>' and invalid skill '<InvalidSkill>'
 	 
 
 
  Examples:
-    | LanguageName | LanguageType | SkillName | SkillType | InvalidLanguageName            | InvalidSkillName |
-    | French       | Basic        | SQL       | Expert    | D344@rfgd$dtereere+=reer3 | r666555          |
-    
+    | LanguageName | LanguageType | SkillName | SkillType | MessageWithValidLang                      | MessageWithValidSkill               |
+    | French       | Basic        | SQL       | Expert    | French has been updated to your languages | SQL has been updated to your skills |
+	
+	Scenario Outline: 5.Edit the already added language and skill with Invalid Input
+	Given I Logged into a portal
+    When Edit the added language and skill with invalid inputs including '<InvalidLanguageName>' and '<InvalidSkillName>' 
+	Then Message1 '<MessageWithInvalidLang>' and '<MessagewithInvalidSkill>' should be display
 
+	Examples: 
+| InvalidLanguageName       | InvalidSkillName | MessageWithInvalidLang                                            | MessageWithInvalidSkill                 |
+| D344@rfgd$dtereere+=reer3 | r5676@e          | D344@rfgd$dtereerereer35464533 has been updated to your languages | r5676@e has been updated to your skills |
 
-	 
-	 Scenario Outline: 5. Delete the already added Skill
+ 
+	 Scenario Outline: 6. Delete the already added Skill
 	 Given I Logged into a portal
 	 Then I delete the selected language and skill
      

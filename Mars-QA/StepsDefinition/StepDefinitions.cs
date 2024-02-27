@@ -125,14 +125,67 @@ namespace Mars_QA.StepsDefinition
 
 
         //}
-
-        [Then(@"Edit the already added Language and Skill Field including '([^']*)' ,'([^']*)','([^']*)' ,'([^']*)'")]
-        public void ThenEditTheAlreadyAddedLanguageAndSkillFieldIncluding(string LanguageName, string LanguageType, string SkillName, string SkillType)
+        [When(@"Edit the already added Language and Skill Field including '([^']*)' ,'([^']*)'and'([^']*)' ,'([^']*)'")]
+        public void WhenEditTheAlreadyAddedLanguageAndSkillFieldIncludingAnd(string LanguageName, string LanguageType, string SkillName, string SkillType, string MessageWithValidLang, String MessageWithValidSkill)
         {
-            editObj.EditLangandSkill(LanguageName, LanguageType, SkillName, SkillType);
             
+            editObj.EditLangWithValid(LanguageName, LanguageType);
+            editObj.EditSkillWithValid(SkillName, SkillType);
+
 
         }
+
+        [Then(@"AlertMessage '([^']*)' and '([^']*)'should be display")]
+        public void ThenAlertMessageAndShouldBeDisplay(string MessageWithValidLang, string MessageWithValidSkill)
+        {
+            editObj.AlertMessageLang(MessageWithValidLang);
+            string ExpectedMessage = "French has been updated to your languages";
+            Console.WriteLine("Actual message is :" + MessageWithValidLang);
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+            Assert.That(MessageWithValidLang == ExpectedMessage, "Actual message and expected message do not match");
+            editObj.AlertMessageSkill(MessageWithValidSkill);
+            string ExpectedMessage1 = "SQL has been updated to your skills";
+            Console.WriteLine("Actual message is :" + MessageWithValidSkill);
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+            Assert.That(MessageWithValidSkill == ExpectedMessage, "Actual message and expected message do not match");
+
+        }
+
+        [When(@"Edit the added language and skill  with invalid inputs including '([^']*)' and '([^']*)'")]
+        public void WhenEditTheAddedLanguageAndSkillWithInvalidInputsIncludingAnd(string InvalidLanguageName, string InvalidSkillName)
+        {
+            editObj.EditLangWithInvalid(InvalidLanguageName);
+            editObj.EditSkillWithInvalid(InvalidSkillName);
+            
+        }
+
+        [Then(@"Message1 '([^']*)' and '([^']*)' should be display")]
+        public void ThenMessage1AndShouldBeDisplay(string MessageWithInvalidLang, string MessageWithInvalidSkill)
+        {
+            editObj.AlertMessageLangWithInvalid(MessageWithInvalidLang);
+            string ExpectedMessage = "D344@rfgd$dtereerereer35464533 has been updated to your languages";
+            Console.WriteLine("Actual message is :" + MessageWithInvalidLang);
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+            Assert.That(MessageWithInvalidLang == ExpectedMessage, "Actual message and expected message do not match");
+            editObj.AlertMessageSkillWithInvalid(MessageWithInvalidSkill);
+            string ExpectedMessage1 = "r5676@e has been updated to your skills";
+            Console.WriteLine("Actual message is :" + MessageWithInvalidSkill);
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+            Assert.That(MessageWithInvalidSkill == ExpectedMessage, "Actual message and expected message do not match");
+
+
+
+        }
+
+
+
+        //[When(@"Edit the already added Language and Skill Field including '([^']*)' ,'([^']*)','([^']*)' ,'([^']*)'")]
+        //public void ThenEditTheAlreadyAddedLanguageAndSkillFieldIncluding(string LanguageName, string LanguageType, string SkillName, string SkillType)
+        //{
+        //    editObj.EditLangandSkill(LanguageName, LanguageType, SkillName, SkillType);
+
+
+        //}
         [Then(@"And I attempt to edit with invalid language '([^']*)' and invalid skill '([^']*)'")]
         public void ThenAndIAttemptToEditWithInvalidLanguageAndInvalidSkill(string InvalidLanguageName, string InvalidSkillName)
         {
