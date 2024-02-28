@@ -31,7 +31,7 @@ namespace Mars_QA.Pages
         public IWebElement LangTab => dr.FindElement(By.XPath("//a[normalize-space()='Languages']"));
         public IWebElement Alert1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement Alert2 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public IWebElement AlertLang => dr.FindElement(By.XPath("//div[@class='ns-box-inner']")); 
+        public IWebElement AlertLang => dr.FindElement(By.XPath("/html[1]/body[1]/div[1]/div[1]")); 
         public IWebElement AlertSkillBox => dr.FindElement(By.XPath("//div[@class='ns-box-inner'][1]"));
 
         public string EditLangWithValid(string LanguageName, string LanguageType)
@@ -51,8 +51,9 @@ namespace Mars_QA.Pages
             //Update the edited language
             Update.Click();
             //Gather locator and text of alert
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             ActualMessage2 = Alert1.Text();
+            Thread.Sleep(1000);
             Console.WriteLine(ActualMessage2);
             Thread.Sleep(1000);
             return ActualMessage2; 
@@ -102,6 +103,7 @@ namespace Mars_QA.Pages
        
         public string EditLangWithInvalid(string InvalidLanguageName)
         {
+            Thread.Sleep(1000);
             LangTab.Click();
             //Check by adding Invalid Input in Language Field
             Thread.Sleep(3000);

@@ -20,7 +20,7 @@ Scenario: 1. Add Languages and Skills in a profile
 Scenario Outline: 2. Verify Empty Scenario with language textbox and skill textbox as empty
 Given I Logged into a portal
 When User leaves language textbox including  '<LanguageName>' ,'<LanguageType>' as empty and skill textbox including '<SkillName>','<SkillType>' as empty
-#//Then  Message of Language as '<LangMessage>' and Message of Skill as '<SkillMessage>'
+
 
 Examples: 
 | LanguageName | LanguageType | SkillName | SkillType |
@@ -41,9 +41,9 @@ Examples:
 	 Scenario Outline: 4. Edit the already added Language , Skill field with Valid Inputs 
 	 Given I Logged into a portal
 	 When Edit the already added Language and Skill Field including '<LanguageName>' ,'<LanguageType>'and'<SkillName>' ,'<SkillType>' 
-	 Then  AlertMessage '<MessagewithValidLanguage>' and '<MessagewithValidSkill>' should be display
+	 Then AlertMessage '<MessageWithValidLang>' and '<MessageWithValidSkill>' should be display 
 	 
-	 #Then And I attempt to edit with invalid language '<InvalidLanguageName>' and invalid skill '<InvalidSkill>'
+	 
 	 
 
 
@@ -54,7 +54,7 @@ Examples:
 	Scenario Outline: 5.Edit the already added language and skill with Invalid Input
 	Given I Logged into a portal
     When Edit the added language and skill with invalid inputs including '<InvalidLanguageName>' and '<InvalidSkillName>' 
-	Then Message1 '<MessageWithInvalidLang>' and '<MessagewithInvalidSkill>' should be display
+	Then Message1 '<MessageWithInvalidLang>' and '<MessageWithInvalidSkill>' should be display
 
 	Examples: 
 | InvalidLanguageName       | InvalidSkillName | MessageWithInvalidLang                                            | MessageWithInvalidSkill                 |

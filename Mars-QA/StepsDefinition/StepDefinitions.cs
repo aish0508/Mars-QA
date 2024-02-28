@@ -42,6 +42,8 @@ namespace Mars_QA.StepsDefinition
         public void ThenIClickedOnLanguageTabAndAddLanguageIncludingAfterthatClickOnSkillTabToAddSkillIncluding(string LanguageName, string LanguageType, string SkillName, string SkillType)
         {
             profileObj.AddLanguageAndSkill(LanguageName, LanguageType, SkillName, SkillType);
+            //close browser
+            TearDown();
             
 
         }
@@ -61,6 +63,9 @@ namespace Mars_QA.StepsDefinition
             Console.WriteLine("Actual message is :" + ActualMessage1);
             Console.WriteLine("Expectedmessage is :" + ExpectedMessage4);
             Assert.That(ActualMessage1 == ExpectedMessage4, "Actual message and expected message do not match");
+            //close browser
+            TearDown();
+
 
 
 
@@ -84,7 +89,7 @@ namespace Mars_QA.StepsDefinition
             Console.WriteLine("Actual message is :" + ActualSkillMessage);
             Console.WriteLine("Expectedmessage1 is :" + ExpectedMessage1);
             Assert.That(ActualSkillMessage == ExpectedMessage1, "Actual message and expected message do not match");
-            TearDown();
+            
         }
 
         [Then(@"Message '([^']*)' and '([^']*)' should be display")]
@@ -101,32 +106,15 @@ namespace Mars_QA.StepsDefinition
             Console.WriteLine("Actual message is :" + SkillMessage);
             Console.WriteLine("Expectedmessage1 is :" + ExpectedMessage1);
             Assert.That(SkillMessage == ExpectedMessage1, "Actual message and expected message do not match");
+            //close browser
+            TearDown();
+
 
         }
 
-        //[Then(@"Verify by adding duplicate Language and see record of language and skill including '([^']*)','([^']*)' ,'([^']*)','([^']*)' Created in the profile")]
-        //public void ThenVerifyByAddingDuplicateLanguageAndSeeRecordOfLanguageAndSkillIncludingCreatedInTheProfile(string LanguageName, string LanguageType, string SkillName, string SkillType)
-        //{
-        //    string ActualMessage;
-        //    string ActualSkillMessage;
 
-
-        //    ActualMessage = profileObj.AssertByAddingDuplicateLanguage(LanguageName, LanguageType);
-        //    ActualSkillMessage = profileObj.AssertByAddingDuplicateSkill( SkillName, SkillType);
-        //    string ExpectedMessage = "This language is already exist in your language list.";
-        //    Console.WriteLine("Actual message is :" + ActualMessage);
-        //    Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-        //    Assert.That(ActualMessage==ExpectedMessage, "Actual message and expected messge do not match"); 
-        //    string ExpectedMessage1 = "This skill is already exist in your skill list.";
-        //    Console.WriteLine("Actual message is :" + ActualSkillMessage);
-        //    Console.WriteLine("Expectedmessage1 is :" + ExpectedMessage1);
-        //    Assert.That(ActualSkillMessage==ExpectedMessage1, "Actual message and expected messge do not match");
-        //    TearDown();
-
-
-        //}
         [When(@"Edit the already added Language and Skill Field including '([^']*)' ,'([^']*)'and'([^']*)' ,'([^']*)'")]
-        public void WhenEditTheAlreadyAddedLanguageAndSkillFieldIncludingAnd(string LanguageName, string LanguageType, string SkillName, string SkillType, string MessageWithValidLang, String MessageWithValidSkill)
+        public void WhenEditTheAlreadyAddedLanguageAndSkillFieldIncludingAnd(string LanguageName, string LanguageType, string SkillName, string SkillType)
         {
             
             editObj.EditLangWithValid(LanguageName, LanguageType);
@@ -134,29 +122,30 @@ namespace Mars_QA.StepsDefinition
 
 
         }
-
-        [Then(@"AlertMessage '([^']*)' and '([^']*)'should be display")]
+        [Then(@"AlertMessage '([^']*)' and '([^']*)' should be display")]
         public void ThenAlertMessageAndShouldBeDisplay(string MessageWithValidLang, string MessageWithValidSkill)
         {
             editObj.AlertMessageLang(MessageWithValidLang);
-            string ExpectedMessage = "French has been updated to your languages";
+            string ExpectedMessage2 = "French has been updated to your languages";
             Console.WriteLine("Actual message is :" + MessageWithValidLang);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-            Assert.That(MessageWithValidLang == ExpectedMessage, "Actual message and expected message do not match");
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage2);
+            Assert.That(MessageWithValidLang == ExpectedMessage2, "Actual message and expected message do not match");
             editObj.AlertMessageSkill(MessageWithValidSkill);
             string ExpectedMessage1 = "SQL has been updated to your skills";
             Console.WriteLine("Actual message is :" + MessageWithValidSkill);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-            Assert.That(MessageWithValidSkill == ExpectedMessage, "Actual message and expected message do not match");
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage1);
+            Assert.That(MessageWithValidSkill == ExpectedMessage1, "Actual message and expected message do not match");
+            //close browser
+            TearDown();
 
         }
 
-        [When(@"Edit the added language and skill  with invalid inputs including '([^']*)' and '([^']*)'")]
+        [When(@"Edit the added language and skill with invalid inputs including '([^']*)' and '([^']*)'")]
         public void WhenEditTheAddedLanguageAndSkillWithInvalidInputsIncludingAnd(string InvalidLanguageName, string InvalidSkillName)
         {
             editObj.EditLangWithInvalid(InvalidLanguageName);
             editObj.EditSkillWithInvalid(InvalidSkillName);
-            
+
         }
 
         [Then(@"Message1 '([^']*)' and '([^']*)' should be display")]
@@ -170,22 +159,16 @@ namespace Mars_QA.StepsDefinition
             editObj.AlertMessageSkillWithInvalid(MessageWithInvalidSkill);
             string ExpectedMessage1 = "r5676@e has been updated to your skills";
             Console.WriteLine("Actual message is :" + MessageWithInvalidSkill);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-            Assert.That(MessageWithInvalidSkill == ExpectedMessage, "Actual message and expected message do not match");
+            Console.WriteLine("Expectedmessage is :" + ExpectedMessage1);
+            Assert.That(MessageWithInvalidSkill == ExpectedMessage1, "Actual message and expected message do not match");
+            //close browser
+            TearDown();
+
 
 
 
         }
-
-
-
-        //[When(@"Edit the already added Language and Skill Field including '([^']*)' ,'([^']*)','([^']*)' ,'([^']*)'")]
-        //public void ThenEditTheAlreadyAddedLanguageAndSkillFieldIncluding(string LanguageName, string LanguageType, string SkillName, string SkillType)
-        //{
-        //    editObj.EditLangandSkill(LanguageName, LanguageType, SkillName, SkillType);
-
-
-        //}
+               
         [Then(@"And I attempt to edit with invalid language '([^']*)' and invalid skill '([^']*)'")]
         public void ThenAndIAttemptToEditWithInvalidLanguageAndInvalidSkill(string InvalidLanguageName, string InvalidSkillName)
         {

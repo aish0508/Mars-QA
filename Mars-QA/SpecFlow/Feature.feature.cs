@@ -220,8 +220,7 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
                             "{3}\'", languageName, languageType, skillName, skillType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 44
-  testRunner.Then("AlertMessage \'<MessagewithValidLanguage>\' and \'<MessagewithValidSkill>\' should be" +
-                        " display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then(string.Format("AlertMessage \'{0}\' and \'{1}\' should be display", messageWithValidLang, messageWithValidSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -256,7 +255,7 @@ testRunner.Then(string.Format("Message \'{0}\' and \'{1}\' should be display", l
     testRunner.When(string.Format("Edit the added language and skill with invalid inputs including \'{0}\' and \'{1}\'", invalidLanguageName, invalidSkillName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 57
- testRunner.Then(string.Format("Message1 \'{0}\' and \'<MessagewithInvalidSkill>\' should be display", messageWithInvalidLang), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("Message1 \'{0}\' and \'{1}\' should be display", messageWithInvalidLang, messageWithInvalidSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
