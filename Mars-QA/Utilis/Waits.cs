@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mars_QA.Utilis
 {
-    public class Waits
+    public class Waits : CommonDriver
     {
         public static void WaitToBeClickable(IWebDriver dr, string locatorType, string locatorValue, int seconds)
         {
@@ -25,6 +25,28 @@ namespace Mars_QA.Utilis
             if(locatorType=="Name")
             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Name(locatorValue)));  
+            }
+            if (locatorType == "CssSelector")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(locatorValue)));
+            }
+            if (locatorType == "Class")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.ClassName(locatorValue)));
+            }
+
+        }
+        public static void WaitToExist(string locatorType, string locatorValue, int seconds)
+        {
+            var wait = new WebDriverWait(dr, new TimeSpan(0, 0, seconds));
+
+            if (locatorType == "XPath")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(locatorValue)));
+            }
+            if (locatorType == "Id")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id(locatorValue)));
             }
             if (locatorType == "CssSelector")
             {

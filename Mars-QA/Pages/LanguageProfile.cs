@@ -12,40 +12,54 @@ using System.Threading.Tasks;
 
 namespace Mars_QA.Pages
 {
-    public class Profile : CommonDriver
+    public class LanguageProfile : CommonDriver
     {
         string actualMessage;
-        string actualMessageSkill;
         string actualMessage1;
-        string actualMessage2;
+       
         public IWebElement addLangButton => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
         public IWebElement language=> dr.FindElement(By.XPath("//input[@placeholder='Add Language']"));
         public SelectElement oSelect => new SelectElement(dr.FindElement(By.Name("level")));
         public IWebElement AddButton => dr.FindElement(By.XPath("//input[@value='Add']"));
        
-        public IWebElement SkillsTab => dr.FindElement(By.XPath("//a[normalize-space()='Skills']"));
-        public IWebElement addSkills => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div"));
-        public IWebElement skill => dr.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
-        public SelectElement selectSkill => new SelectElement(dr.FindElement(By.XPath("//select[@class='ui fluid dropdown']")));
-        public IWebElement AddSkillButton => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
+      //  public IWebElement SkillsTab => dr.FindElement(By.XPath("//a[normalize-space()='Skills']"));
         public IWebElement languageTab => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
         public IWebElement addNewLanguageButton => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
         public SelectElement languageType => new SelectElement(dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select")));
         public IWebElement messageBox => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public IWebElement skillmessagebox => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+       
         // public IWebElement Cancel => dr.FindElement(By.XPath("//input[@value='Cancel']"));
         // public  IWebElement Hindi => dr.FindElement(By.XPath("//td[normalize-space()='Hindi']")); 
         public IWebElement messageBox1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public IWebElement message => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+
+        public void DeleteAllRecords()
+        {
+
+            Waits.WaitToExist("XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 5);
+            //Click on Language Tab
+            languageTab.Click();
+            //click on Delete Icon to delete languages
+            //Get the count of rows in the table
+            int rowcount = dr.FindElements(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table//tbody")).Count;
+            for (int i = 1; i <= rowcount;)
+            {
+                IWebElement DeleteButton = dr.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+                DeleteButton.Click();
+                rowcount--;
+                //driver.Navigate().Refresh();
+                //Thread.Sleep(5000);
+            }
+        }
 
 
-        public void AddLanguageAndSkill(string LanguageName, string LanguageType, string SkillName, string SkillType)
+            public void AddLanguage(string LanguageName, string LanguageType)
         {
 
             //Validate Empty Scenario by adding new language without filling fields
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
+            Waits.WaitToExist("XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 5);
             addLangButton.Click();
-                 
+            Waits.WaitToExist("XPath", "//input[@placeholder='Add Language']", 5);
             Thread.Sleep(5000);
             //Waits.WaitToBeClickable(dr, "XPath", "addLanguage",35);
             //User adding new language in the profile
@@ -56,40 +70,17 @@ namespace Mars_QA.Pages
             oSelect.SelectByValue(LanguageType);
             //Click on Add button to add language in the user profile
             AddButton.Click();
-            Thread.Sleep(4500);
-            //User Click on Skills tab
-            SkillsTab.Click();
-            Thread.Sleep(2000);
-            //Validate Empty Scenario by directly clicking on add button of skills
-            addSkills.Click();
-            Thread.Sleep(2000);
-            
-            //User adding new skill in the profile
-            //   addSkills.Click();
-            Thread.Sleep(5000);
-            // Add skill in the profile 
-            skill.SendKeys(SkillName);
-            Thread.Sleep(4000);
-            // Select Type of Skills
-            selectSkill.SelectByValue(SkillType);
-            Thread.Sleep(2000);
-            //Add Skill in the profile
-            AddSkillButton.Click();
-            
-
-                
-
-
-
+                                  
 
         }
         public string EmptyScenario(string LanguageName, string LanguageType)
         {
             //Click on Language tab
-            Thread.Sleep(1000);
+            Waits.WaitToExist("XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 4);
             languageTab.Click();
-            Thread.Sleep(1000);
+            Waits.WaitToExist("XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 4);
             addLangButton.Click();
+            Waits.WaitToExist("XPath", "//input[@placeholder='Add Language']", 1);
             Thread.Sleep(1000);
             //Enter empty Language Textbox
             language.SendKeys(LanguageName);
@@ -106,30 +97,6 @@ namespace Mars_QA.Pages
             Thread.Sleep(1000);
             Console.WriteLine(actualMessage1);
             return actualMessage1;
-        }
-        public string EmptyScenarioofSkill( string SkillName, string SkillType)
-        {
-            Thread.Sleep(1000);
-            //Click on Skill Tab
-            SkillsTab.Click();
-            // Click on add new button 
-            Thread.Sleep(1000);
-            addSkills.Click();
-            //Enter a skill textbox as empty
-            Thread.Sleep(1000);
-            skill.SendKeys(SkillName);
-            Thread.Sleep(1000);
-            //Enter skill level
-            selectSkill.SelectByValue(SkillType);
-            Thread.Sleep(1000);
-            //click on  add skill button
-            AddSkillButton.Click();
-            //Getting Empty scenario alert message of skill
-            Thread.Sleep(1000);
-            actualMessage2 = message.Text();
-            Thread.Sleep(1000);
-            Console.WriteLine(actualMessage2);
-            return actualMessage2;
         }
            
                        
@@ -173,61 +140,9 @@ namespace Mars_QA.Pages
                 Console.WriteLine(LanguageMessage);
             }
 
-            //else
-            //{
-            //    Console.WriteLine("Do not return anything");
-
-            //}
-            
-            return LanguageMessage;
+                return LanguageMessage;
         }
-        public string SkillMessage(string SkillMessage)
-        {
-            if (actualMessageSkill == SkillMessage)
-            {
-                Console.WriteLine(SkillMessage);
-            }
-
-            //else
-            //{
-            //    Console.WriteLine("Do not return anything");
-            //    return ("nothing");
-            //}
-            
-            return SkillMessage;
-        }
-
-        public string AssertByAddingDuplicateSkill(string SkillName, string SkillType)
-        {
-            //Validating duplicate skill scenario
-            Thread.Sleep(2000);
-            SkillsTab.Click();
-            Thread.Sleep(2000);
-            addSkills.Click();
-            Thread.Sleep(3000);
-            //User adding new skill in the profile
-            skill.Clear();
-            // Add skill in the profile 
-            skill.SendKeys(SkillName);
-            Thread.Sleep(5000);
-            // Select Type of Skills
-            selectSkill.SelectByValue(SkillType);
-            Thread.Sleep(3000);
-
-            //Add Skill in the profile
-            AddSkillButton.Click();
-            Thread.Sleep(1000);
-            actualMessageSkill= skillmessagebox.Text;
-            Thread.Sleep(1000);
-            Console.WriteLine(SkillMessage);
-            return actualMessageSkill;
-            
-            
-        }
-            
-           // Cancel.Click();
-            
-
+       
         }
 
     }

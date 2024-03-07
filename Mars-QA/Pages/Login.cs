@@ -28,11 +28,8 @@ namespace Mars_QA.Pages
             dr.Navigate().GoToUrl("http://localhost:5000");
             //click on Signin button
             SignIn.Click();
-            // Check Validation by direct clicking on Login Button
-            //LoginButton.Click();
             //User Now fill email and password then click on login button
-            Thread.Sleep(2000);
-            // Waits.WaitToBeClickable(dr, "Name", "Email", 60);
+            Waits.WaitToExist("XPath", "//input[@name='email']", 4);
             //user write email address
             Email.SendKeys("aisharya994@gmail.com");            
             //user write password

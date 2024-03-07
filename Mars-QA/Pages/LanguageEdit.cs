@@ -10,29 +10,24 @@ using System.Threading.Tasks;
 
 namespace Mars_QA.Pages
 {
-    public class Edit : CommonDriver
+    public class LanguageEdit : CommonDriver
     {
         public string LanguageType;
         public string StringType;
         public string ActualMessage;
-        public string ActualMessage1;
         public string ActualMessage2;
-        public string ActualMessage3;
+      
 
         public IWebElement editicon => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
         public IWebElement EditLang => dr.FindElement(By.Name("name"));
         public SelectElement oSelect4 => new SelectElement(dr.FindElement(By.Name("level")));
         public IWebElement Update => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
-        public IWebElement SkillTab => dr.FindElement(By.XPath("//a[contains(text(),'Skills')]"));
-        public IWebElement EditSkillIcon => dr.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
-        public IWebElement SkillInput => dr.FindElement(By.Name("name"));
-        public SelectElement oselect5 => new SelectElement(dr.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/div[2]/select[1]")));
-        public IWebElement UpdateSkill => dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
+      
         public IWebElement LangTab => dr.FindElement(By.XPath("//a[normalize-space()='Languages']"));
         public IWebElement Alert1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public IWebElement Alert2 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+       
         public IWebElement AlertLang => dr.FindElement(By.XPath("/html[1]/body[1]/div[1]/div[1]")); 
-        public IWebElement AlertSkillBox => dr.FindElement(By.XPath("//div[@class='ns-box-inner'][1]"));
+       
 
         public string EditLangWithValid(string LanguageName, string LanguageType)
         {
@@ -66,40 +61,10 @@ namespace Mars_QA.Pages
             }
             return MessageWithValidLang;
         }
-        public string EditSkillWithValid(string SkillName,string SkillType)
-        {
-            //Click on Skill Tab
-            SkillTab.Click();
-            // Click on skillIcon
-            EditSkillIcon.Click();
-            Thread.Sleep(3000);
-            //Edit New Skill
-            SkillInput.Clear();
-            SkillInput.SendKeys(SkillName);
-            Thread.Sleep(3000);
-            //Select the new skill type
-            oselect5.SelectByValue(SkillType);
-            //Update  new skill in the profile
-            Thread.Sleep(3000);
-            UpdateSkill.Click();
-            Thread.Sleep(2000);
-            //Gather locator and text of alert
-            ActualMessage3 = Alert2.Text();
-            Console.WriteLine(ActualMessage3);
-            Thread.Sleep(1000);
-            return ActualMessage3;
-        }
             
             
         
-        public string AlertMessageSkill(string MessageWithValidSkill)
-        {
-            if (ActualMessage3 == MessageWithValidSkill)
-            {
-                Console.WriteLine(MessageWithValidSkill);
-            }
-            return MessageWithValidSkill;
-        }
+       
        
         public string EditLangWithInvalid(string InvalidLanguageName)
         {
@@ -115,22 +80,13 @@ namespace Mars_QA.Pages
             //Select the type of language
             oSelect4.SelectByValue("Basic");
             Update.Click();
-            //Check By adding Invalid Input in Skill Field
-            SkillTab.Click();
-            Thread.Sleep(2000);
-            //Edit skill by clicking on edit icon
-            Thread.Sleep(2000);
-            EditSkillIcon.Click();
-            Thread.Sleep(2000);
-            SkillInput.Clear();
             //Gathering text of Invalid language from alert popup
             Thread.Sleep(3000);
             ActualMessage = AlertLang.Text();
             Console.WriteLine(ActualMessage);
             return ActualMessage;
-           
 
-            }
+        }
         public string AlertMessageLangWithInvalid(string MessageWithInvalidLang)
         {
             if (ActualMessage == MessageWithInvalidLang)
@@ -139,32 +95,7 @@ namespace Mars_QA.Pages
             }
             return MessageWithInvalidLang;
         }
-        public string EditSkillWithInvalid(string InvalidSkillName)
-        {
-            Thread.Sleep(1000);
-            //Enter Invalid input in skill name field
-            SkillInput.Clear();
-            Thread.Sleep(1000);
-            SkillInput.SendKeys(InvalidSkillName);
-            //Enter Invalid input in skill type field
-            Thread.Sleep(1000);
-            oselect5.SelectByValue("Beginner");
-            UpdateSkill.Click();
-            //Gathering text of Invalid Skill from alert popup
-            Thread.Sleep(2000);
-            ActualMessage1 = AlertSkillBox.Text();
-            Console.WriteLine(ActualMessage1);
-            return ActualMessage1;
-
-        }
-        public string AlertMessageSkillWithInvalid(string MessageWithInvalidSkill)
-        {
-            if (ActualMessage1 == MessageWithInvalidSkill)
-            {
-                Console.WriteLine(MessageWithInvalidSkill);
-            }
-            return MessageWithInvalidSkill;
-        }
+       
 
 
 
