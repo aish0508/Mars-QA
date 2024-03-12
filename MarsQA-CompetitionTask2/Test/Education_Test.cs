@@ -31,7 +31,7 @@ namespace MarsQA_CompetitionTask2.Test
 
 
         }
-        [BeforeTestRun]
+        
         [SetUp]
         public void Login()
         {
@@ -113,8 +113,13 @@ namespace MarsQA_CompetitionTask2.Test
 
 
         }
-        
 
+        [TearDown]
+        public void TearDown()
+        {
+            TearDown();
+
+        }
     }
 }
 

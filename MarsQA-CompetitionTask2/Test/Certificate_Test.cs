@@ -108,12 +108,12 @@ namespace MarsQA_CompetitionTask2.Test
 
         }
 
-        //[OneTimeTearDown]
-        //public void OneTimeTearDown()
-        //{
-        //    dr.Quit();
+        [TearDown]
+        public void TearDown()
+        {
+            TearDown();
 
-        //}
+        }
 
     }
     }

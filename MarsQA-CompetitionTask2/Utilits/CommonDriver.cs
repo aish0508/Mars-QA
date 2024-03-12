@@ -21,7 +21,7 @@ namespace MarsQA_CompetitionTask2.Utilits
             dr.Manage().Window.Maximize();
         }
 
-        [AfterTest]
+        
         [TearDown]
         public void TearDown()
         {
