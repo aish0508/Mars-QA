@@ -26,7 +26,7 @@ namespace MarsQA_CompetitionTask2.Utilits
         public void TearDown()
         {
             // Close the browser after each test
-            dr.Quit();
+            dr.Close();
         }
     }
 }

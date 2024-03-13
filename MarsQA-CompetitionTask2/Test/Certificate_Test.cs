@@ -108,12 +108,12 @@ namespace MarsQA_CompetitionTask2.Test
 
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            TearDown();
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    TearDown();
 
-        }
+        //}
 
     }
     }
