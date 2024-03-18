@@ -25,6 +25,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
         public IWebElement messageAlert => dr.FindElement(By.XPath("/html/body/div[1]/div"));
         public IWebElement messageAlert2 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement messageAlert1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+       
         public void AddEducation()
         {
 
@@ -34,7 +35,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             AddNewEducation.Click();
             //Check by direct clicking on Add Button
             Add.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             //Add University name in the profile
             UniversityName.SendKeys("Chitkara University");
             Thread.Sleep(1000);
@@ -151,6 +152,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             Console.WriteLine(actualMessage1);
             return actualMessage1;
         }
+       
 
     }
 

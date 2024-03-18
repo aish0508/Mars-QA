@@ -30,7 +30,7 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
             CertificateTab.Click();
             Thread.Sleep(1000);
             AddNew.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             CertificateName.SendKeys("Java Language");
             Thread.Sleep(1000);
             CertificateForm.SendKeys("Adobe");

@@ -20,6 +20,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
         public SelectElement YearOfGraduation => new SelectElement(dr.FindElement(By.Name("yearOfGraduation")));
         public IWebElement Update => dr.FindElement(By.XPath("//input[@value='Update']"));
         public IWebElement messageAlert => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+        private IWebElement CancelButton => dr.FindElement(By.XPath("//div[@class='four wide column' and h3='Education']/following-sibling::div[@class='twelve wide column scrollTable']//input[@value='Cancel']"));
 
         public void EditEducation()
         {
@@ -84,6 +85,19 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             return actualMessage;
 
         }
+        public void getCancel()
+        {
+            try
+            {
+                //Click the cancel button
+                CancelButton.Click();
+            }
+            catch (NoSuchElementException)
+            {
+                return;
+            }
+        }
+
 
 
 

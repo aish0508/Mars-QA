@@ -21,5 +21,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgWebDriver_ChromeDriver Condition=" '$(PkgWebDriver_ChromeDriver)' == '' ">C:\Users\owner\.nuget\packages\webdriver.chromedriver\26.14.313457.1</PkgWebDriver_ChromeDriver>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\owner\.nuget\packages\microsoft.codeanalysis.analyzers\3.0.0</PkgMicrosoft_CodeAnalysis_Analyzers>
   </PropertyGroup>
 </Project>

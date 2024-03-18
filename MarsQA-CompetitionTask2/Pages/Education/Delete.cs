@@ -10,6 +10,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
 {
     public class Delete : CommonDriver
     {
+       
         public IWebElement Educationtab => dr.FindElement(By.XPath("//a[@data-tab='third']"));
         public void DeleteEducation()
         {
