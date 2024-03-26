@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Certificate": "Automation Testing with Selenium WebDriver",
+    "CertifiedFrom": "Adobe",
+    "Year": "2022"
+  },
+  {
+    "Id": 2,
+    "Certificate": "ISTQB",
+    "CertifiedFrom": "Adobe",
+    "Year": "2020"
+  },
+  {
+    "Id": 3,
+    "Certificate": "Risk Based Testing",
+    "CertifiedFrom": "Industry Training",
+    "Year": "2018"
+  }
+]
