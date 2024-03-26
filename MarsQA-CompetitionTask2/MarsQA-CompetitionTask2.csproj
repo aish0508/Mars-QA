@@ -20,9 +20,11 @@
     <PackageReference Include="Selenium.Essentials" Version="1.0.5.28" />
     <PackageReference Include="Selenium.Support" Version="4.18.1" />
     <PackageReference Include="Selenium.WebDriver" Version="4.18.1" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="122.0.6261.11100" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="123.0.6312.5800" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="WebDriver.ChromeDriver" Version="26.14.313457.1" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties data_4editcertificatedata_1json__JsonSchema="2" /></VisualStudio></ProjectExtensions>
 
 </Project>

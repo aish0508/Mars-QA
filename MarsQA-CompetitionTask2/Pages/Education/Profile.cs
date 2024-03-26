@@ -1,4 +1,5 @@
-﻿using MarsQA_CompetitionTask2.Utilits;
+﻿using MarsQA_CompetitionTask2.Data;
+using MarsQA_CompetitionTask2.Utilits;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -26,10 +27,10 @@ namespace MarsQA_CompetitionTask2.Pages.Education
         public IWebElement messageAlert2 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement messageAlert1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
        
-        public void AddEducation()
+        public void AddEducation(EducationData educationData)
         {
 
-            Thread.Sleep(6000);
+            Thread.Sleep(8000);
             EducationTab.Click();
             Thread.Sleep(6000);
             AddNewEducation.Click();
@@ -37,49 +38,23 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             Add.Click();
             Thread.Sleep(3000);
             //Add University name in the profile
-            UniversityName.SendKeys("Chitkara University");
-            Thread.Sleep(1000);
+            UniversityName.SendKeys(educationData.UniversityName);
+            Thread.Sleep(2000);
             //Add Country name
-            Country.SelectByValue("India");
+            Country.SelectByValue(educationData.Country);
             Thread.Sleep(4000);
             //Add Title Name
-            Title.SelectByValue("B.Tech");
+            Title.SelectByValue(educationData.Title);
             //Add Degree Name
-            Degree.SendKeys("CSE");
-            Thread.Sleep(1000);
+            Degree.SendKeys(educationData.Degree);
+            Thread.Sleep(2000);
             //Select Year of graduation
-            YearOfGraduation.SelectByValue("2016");
-            Thread.Sleep(1000);
+            YearOfGraduation.SelectByValue(educationData.YearOfGraduation);
+            Thread.Sleep(2000);
             Add.Click();
-            Thread.Sleep(1000);
-            //Click on add new button 
-            AddNewEducation.Click();
-            // Add College /University name
-            UniversityName.SendKeys("Ara College");
-            Thread.Sleep(1000);
-            //Add Country name
-            Country.SelectByValue("New Zealand");
-            //Add Title
-            Thread.Sleep(4000);
-            Title.SelectByValue("M.Tech");
-            //Add Degree Name
-            Degree.SendKeys("CSE");
-            Thread.Sleep(1000);
-            //Add year of graduation
-            YearOfGraduation.SelectByValue("2019");
-            Thread.Sleep(1000);
-            Add.Click();
-            Thread.Sleep(1000);
-            //Validate by adding university and directly click  on add
-            Thread.Sleep(1000);
-            AddNewEducation.Click();
-            Thread.Sleep(1000);
-            UniversityName.SendKeys("Ara College");
-            //Click on Add Button
-            Add.Click();
-
+            
         }
-        public string Validatebyaddingduplicateeducation()
+        public string Validatebyaddingduplicateeducation(EducationData educationData)
         {
             Thread.Sleep(4000);
             //Click on education tab
@@ -87,21 +62,21 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             Thread.Sleep(2000);
             //click on add new button
             AddNewEducation.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
             //enter the input in university textbox
-            UniversityName.SendKeys("Chitkara University");
+            UniversityName.SendKeys(educationData.UniversityName);
             Thread.Sleep(1000);
             //Select value of country from select field
-            Country.SelectByValue("India");
+            Country.SelectByValue(educationData.Country);
             Thread.Sleep(1000);
             //select value of title from select field
-            Title.SelectByValue("B.Tech");
+            Title.SelectByValue(educationData.Title);
             Thread.Sleep(1000);
             //Enter degree value in degree textbox
-            Degree.SendKeys("CSE");
+            Degree.SendKeys(educationData.Degree);
             Thread.Sleep(1000);
             //select year of great fron select field
-            YearOfGraduation.SelectByValue("2016");
+            YearOfGraduation.SelectByValue(educationData.YearOfGraduation);
             Thread.Sleep(1000);
             //click on add button
             Add.Click();
@@ -129,9 +104,9 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             Console.WriteLine(actualMessage2);
             return actualMessage2;
         }
-        public string ValidateEmptyScenarioWithEnteringsomeField()
+        public string ValidateEmptyScenarioWithEnteringsomeField(EducationData educationData)
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(4000);
             EducationTab.Click();
             //validate by filling some values in field and then click on add button
             Thread.Sleep(1000);
@@ -139,10 +114,10 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             AddNewEducation.Click();    
             Thread.Sleep(1000);
             //Enter value of university name
-            UniversityName.SendKeys("Planit");
+            UniversityName.SendKeys(educationData.UniversityName);
             Thread.Sleep(1000);
             //Enter value of country
-            Country.SelectByValue("New Zealand");
+            Country.SelectByValue(educationData.Country);
             Thread.Sleep(3000);
             //click on add button
             Add.Click();

@@ -13,6 +13,7 @@ using System.Net.NetworkInformation;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using System.Text.RegularExpressions;
+using MarsQA_CompetitionTask2.Data;
 
 
 
@@ -27,6 +28,7 @@ namespace MarsQA_CompetitionTask2.Test
         Profile profileobj;
         Edit editObj;
         Delete deleteObj;
+        EducationData educationData;
         public static ExtentReports extent;
         public static ExtentTest test;
 
@@ -38,8 +40,7 @@ namespace MarsQA_CompetitionTask2.Test
             profileobj = new Profile();
             editObj = new Edit();
             deleteObj = new Delete();
-
-
+            
         }
         [OneTimeSetUp]
         public static void ExtentStart()
@@ -79,8 +80,16 @@ namespace MarsQA_CompetitionTask2.Test
         {
             test = extent.CreateTest("Add_Education").Info("Test started");
             // Profile object initialization and definition
-            profileobj.AddEducation();
-            test.Log(Status.Pass, "Delete_AllRecords passed");
+            // Read test data for the AddEducation test case
+            List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"AddEducationData.json");
+
+            // Iterate through test data and retrieve AddEducation test data
+            foreach (var educationData in educationDataList)
+            {
+                Console.WriteLine(educationData.UniversityName);
+                profileobj.AddEducation(educationData);
+                test.Log(Status.Pass, "Added Education Passed");
+            }
 
 
         }
@@ -88,13 +97,22 @@ namespace MarsQA_CompetitionTask2.Test
         public void VerifyByDuplicateEducation()
         {
             test = extent.CreateTest("Update_EducationByAddingDulicateValue ").Info("Test started");
-            String ActualMessage;
-            ActualMessage = profileobj.Validatebyaddingduplicateeducation();
-            String ExpectedMessage = "This information is already exist.";
-            Console.WriteLine("Actual message is :" + ActualMessage);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-            Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
-            test.Log(Status.Pass, "Update_Education passed");
+            List<EducationData>educationDataList = EducationDataHelper.ReadEducationData(@"AddExistingEducation.json");
+            // Iterate through test data and retrieve AddEducation test data
+            foreach (var educationData in educationDataList)
+            {
+                String ActualMessage;
+                Console.WriteLine(educationData.UniversityName);
+                ActualMessage = profileobj.Validatebyaddingduplicateeducation(educationData);
+                String ExpectedMessage = "This information is already exist.";
+                Console.WriteLine("Actual message is :" + ActualMessage);
+                Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+                Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
+                test.Log(Status.Pass, "Update_Education passed");
+
+            }
+
+               
         }
         [Test, Order(4), Description("This test is validating Empty Scenario")]
         public void ValidateByEmptyScenario()
@@ -112,22 +130,31 @@ namespace MarsQA_CompetitionTask2.Test
         public void ValidateEmptyScenarioByFillingSomeField()  
         {
             test = extent.CreateTest("EmptyTextbox_EducationByFillingSomeField").Info("Test started");
-            string ActualMessage1;
-            ActualMessage1 = profileobj.ValidateEmptyScenarioWithEnteringsomeField();
-            string ExpectedMessage1 = "Please enter all the fields";
-            Console.WriteLine("Actual message is :" + ActualMessage1);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage1);
-            Thread.Sleep(1000);
-            Assert.That(ActualMessage1.Equals(ExpectedMessage1), "Actual Message and Expected Message do not match");
-            test.Log(Status.Pass, "EmptyTextbox_Education passed");
+            List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EmptyScenarioData.json");
+            foreach (var educationData in educationDataList)
+            {
+                string ActualMessage1;
+                ActualMessage1 = profileobj.ValidateEmptyScenarioWithEnteringsomeField(educationData);
+                string ExpectedMessage1 = "Please enter all the fields";
+                Console.WriteLine("Actual message is :" + ActualMessage1);
+                Console.WriteLine("Expectedmessage is :" + ExpectedMessage1);
+                Thread.Sleep(1000);
+                Assert.That(ActualMessage1.Equals(ExpectedMessage1), "Actual Message and Expected Message do not match");
+                test.Log(Status.Pass, "EmptyTextbox_Education passed");
+            }
+                
         }
         [Test, Order(6), Description("This test is Editing the existing education with Valid Input")]
         public void Edit()
         {
             test = extent.CreateTest("Edit_Education").Info("Test started");
-            //Update Education
-            editObj.EditEducation();
-            test.Log(Status.Pass, "Edit_Education passed");
+            List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EditEducation.json");
+            foreach (var educationData in educationDataList)
+            {
+                //Update Education
+                editObj.EditEducation(educationData);
+                test.Log(Status.Pass, "Edit_Education passed");
+            }
 
 
 
@@ -136,29 +163,39 @@ namespace MarsQA_CompetitionTask2.Test
         public void  EditEducationWithInvalid()
         {
             test = extent.CreateTest("Edit_EducationWithInvalidInput").Info("Test started");
-            string ActualMessage;
-            ActualMessage=editObj.EditEducationWithInvalid();
-            String ExpectedMessage = "Education as been updated";
-            Console.WriteLine("Actual message is :" + ActualMessage);
-            Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
-            //try
-            //{
+            List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EditEducationWithInvalid .json");
+            foreach (var educationData in educationDataList)
+            {
+                string ActualMessage;
+                ActualMessage = editObj.EditEducationWithInvalid(educationData);
+                String ExpectedMessage = "SpecialCharacter are not allowed";
+                Console.WriteLine("Actual message is :" + ActualMessage);
+                Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
+                // Check if the UniversityName contains special characters
+                bool containsSpecialChars = ContainsSpecialCharacters(educationData.UniversityName);
+                if (containsSpecialChars)
+                {
 
-            //    Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
-            //    test.Log(Status.Pass, "Education passed");
-            //    // If information already exists, call the cancel method
-            //    if (ActualMessage == "This information is already exist.")
-            //    {
-            //        editObj.getCancel();
-            //    }
-            //}
-            //catch (AssertionException ex)
-            //{
-            //    // Log the failure and capture a screenshot
-            //    test.Log(Status.Fail, "Education failed: " + ex.Message);
-            //    Console.WriteLine(ActualMessage);
-            //    CaptureScreenshot("EducationTestFailed");
-            //}
+                    try
+                    {
+
+                        Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
+                        test.Log(Status.Pass, "Education passed");
+                        // If information already exists, call the cancel method
+                        if (ActualMessage == "This information is already exist.")
+                        {
+                            editObj.getCancel();
+                        }
+                    }
+                    catch (AssertionException ex)
+                    {
+                        // Log the failure and capture a screenshot
+                        test.Log(Status.Fail, "Education failed: " + ex.Message);
+                        Console.WriteLine(ActualMessage);
+                        CaptureScreenshot("EducationTestFailed");
+                    }
+                }
+            }
 
 
         }

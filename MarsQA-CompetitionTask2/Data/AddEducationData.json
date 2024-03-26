@@ -1,0 +1,27 @@
+[
+  {
+    "Id": 1,
+    "UniversityName": "Chitkara University",
+    "Country": "India",
+    "Title": "B.Tech",
+    "Degree": "Computer Science",
+    "YearOfGraduation": "2016"
+  },
+  {
+    "Id": 2,
+    "UniversityName": "ARA Institute",
+    "Country": "New Zealand",
+    "Title": "M.Tech",
+    "Degree": "Computer Science",
+    "YearOfGraduation": "2018"
+  },
+  {
+    "Id": 3,
+    "UniversityName": "Industry Connect",
+    "Country": "New Zealand",
+    "Title": "B.Tech",
+    "Degree": "Job Ready Programme In Test Analyst",
+    "YearOfGraduation": "2023"
+  }
+
+]

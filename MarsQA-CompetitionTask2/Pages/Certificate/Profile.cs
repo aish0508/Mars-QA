@@ -1,4 +1,5 @@
-﻿using MarsQA_CompetitionTask2.Utilits;
+﻿using MarsQA_CompetitionTask2.Data;
+using MarsQA_CompetitionTask2.Utilits;
 using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V120.Runtime;
 using OpenQA.Selenium.Support.UI;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestAny.Essentials.Core.Dtos.Api;
 
 namespace MarsQA_CompetitionTask2.Pages.Skill
 {
@@ -24,49 +26,32 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
         public IWebElement messageAlert => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement AlertMessage => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         public IWebElement AlertMessage1 => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public void AddCertificate()
+        public void AddCertificate(CertificationData certificationData)
         {
             Thread.Sleep(1000);
             CertificateTab.Click();
-            Thread.Sleep(1000);
-            AddNew.Click();
-            Thread.Sleep(3000);
-            CertificateName.SendKeys("Java Language");
-            Thread.Sleep(1000);
-            CertificateForm.SendKeys("Adobe");
-            Thread.Sleep(1000);
-            year.SelectByValue("2017");
-            Add.Click();
-            Thread.Sleep(1000);
-            AddNew.Click();
             Thread.Sleep(2000);
-            CertificateName.SendKeys("ISTQB");
-            CertificateForm.SendKeys("Adobe");
-            Thread.Sleep(1000);
-            year.SelectByValue("2018");
-            Wait.WaitToExist("XPath", "//input[@value='Add']", 6);
-            Add.Click() ;
-            Thread.Sleep(1000);
             AddNew.Click();
-            CertificateName.SendKeys("Automation testing");
-            CertificateForm.SendKeys("Adobe");
+            Thread.Sleep(6000);
+            CertificateName.SendKeys(certificationData.Certificate);
             Thread.Sleep(1000);
-            year.SelectByValue("2020");
-            Wait.WaitToExist("XPath", "//input[@value='Add']", 6);
+            CertificateForm.SendKeys(certificationData.CertifiedFrom);
+            Thread.Sleep(1000);
+            year.SelectByValue(certificationData.Year);
             Add.Click();
-
+           
         }
-        public string VaditeByAddingDuplicateCertificate()
+        public string VaditeByAddingDuplicateCertificate(CertificationData certificationData)
         {
             Thread.Sleep(3000);
             CertificateTab.Click();
             Thread.Sleep(1000);
             AddNew.Click();
             Thread.Sleep(1000);
-            CertificateName.SendKeys("ISTQB");
-            CertificateForm.SendKeys("Adobe");
+            CertificateName.SendKeys(certificationData.Certificate);
+            CertificateForm.SendKeys(certificationData.CertifiedFrom);
             Thread.Sleep(1000);
-            year.SelectByValue("2018");
+            year.SelectByValue(certificationData.Year);
             Wait.WaitToExist("XPath", "//input[@value='Add']", 6);
             Add.Click();
             //store value of alert
@@ -93,7 +78,7 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
             return actualMessage1;
         }
 
-        public string ValidateEmptyScenarioByFillingSomeField()
+        public string ValidateEmptyScenarioByFillingSomeField(CertificationData certificationData)
         {
             Thread.Sleep(1000);
             //Click on Certificate Tab
@@ -102,7 +87,7 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
             AddNew.Click();
             Thread.Sleep(1000);
             //Fill value in Certificate Name
-            CertificateName.SendKeys("CSharp");
+            CertificateName.SendKeys(certificationData.Certificate);
             Thread.Sleep(1000);
             //Click on Add Button 
             Add.Click();

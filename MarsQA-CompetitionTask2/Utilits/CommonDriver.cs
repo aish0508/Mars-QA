@@ -20,8 +20,20 @@ namespace MarsQA_CompetitionTask2.Utilits
             //Maximize the browser
             dr.Manage().Window.Maximize();
         }
+        public void CaptureScreenshot(string ScreenshotName)
+        {
+            //capture screenshot
+            ITakesScreenshot ts = (ITakesScreenshot)dr;
+            Screenshot screenshot = ts.GetScreenshot();
+            string filePath = "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-CompetitionTask2\\MarsQA-CompetitionTask2\\Screenshot";
+            string screenshotPath = Path.Combine(filePath, $"{ScreenshotName}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
+            screenshot.SaveAsFile(screenshotPath);
+        }
+        public bool ContainsSpecialCharacters(string universityName)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(universityName, @"[^a-zA-Z0-9\s]");
+        }
 
-        
         [TearDown]
         public void TearDown()
         {

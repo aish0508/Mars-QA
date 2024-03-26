@@ -1,4 +1,5 @@
-﻿using MarsQA_CompetitionTask2.Utilits;
+﻿using MarsQA_CompetitionTask2.Data;
+using MarsQA_CompetitionTask2.Utilits;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -22,7 +23,7 @@ namespace MarsQA_CompetitionTask2.Pages.Education
         public IWebElement messageAlert => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private IWebElement CancelButton => dr.FindElement(By.XPath("//div[@class='four wide column' and h3='Education']/following-sibling::div[@class='twelve wide column scrollTable']//input[@value='Cancel']"));
 
-        public void EditEducation()
+        public void EditEducation(EducationData educationData)
         {
             Thread.Sleep(4000);
             //click on education tab
@@ -34,29 +35,29 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             //Clear university name 
             UniversityName.Clear();
             Thread.Sleep(1000);
-            //Edit value of Ara College from Planit 
-            UniversityName.SendKeys("Planit College ");
+            //Edit value 
+            UniversityName.SendKeys(educationData.UniversityName);
             Thread.Sleep(2000);
-            //edit select value from New Zealand to Australia
-            Country.SelectByValue("Australia");
+            //edit select value 
+            Country.SelectByValue(educationData.Country);
             Thread.Sleep(1000);
             //edit select value from M.Tech to M.B.A
-            Title.SelectByValue("M.B.A");
+            Title.SelectByValue(educationData.Title);
             Thread.Sleep(1000);
             //clear degree Input
             Degree.Clear();
             Thread.Sleep(1000);
             //Edit input from ECE to CSE
-            Degree.SendKeys("CSE");
+            Degree.SendKeys(educationData.Degree);
             Thread.Sleep(1000);
             //edit select value from 2019 to 2020
-            YearOfGraduation.SelectByValue("2020");
+            YearOfGraduation.SelectByValue(educationData.YearOfGraduation);
             Thread.Sleep(1000);
             //Click on Update Button
             Update.Click();
 
         }
-        public string EditEducationWithInvalid()
+        public string EditEducationWithInvalid(EducationData educationData)
         {
             string actualMessage;
             Thread.Sleep(4000);
@@ -70,10 +71,10 @@ namespace MarsQA_CompetitionTask2.Pages.Education
             UniversityName.Clear();
             Thread.Sleep(1000);
             //Edit value of Ara College from Planit 
-            UniversityName.SendKeys("A3442#$5&**%^$@@@@@$rrtre54tftdtdrererere");
+            UniversityName.SendKeys(educationData.UniversityName);
             Thread.Sleep(1000);
             Degree.Clear();
-            Degree.SendKeys("454342232323232@@%&*#()");
+            Degree.SendKeys(educationData.Degree);
             Thread.Sleep(1000);
             //Click on Update Button
             Update.Click();

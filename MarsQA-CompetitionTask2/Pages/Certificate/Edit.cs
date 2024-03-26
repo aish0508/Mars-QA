@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarsQA_CompetitionTask2.Data;
+using TestAny.Essentials.Core.Dtos.Api;
 
 namespace MarsQA_CompetitionTask2.Pages.Skill
 {
@@ -19,7 +21,7 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
         public SelectElement year => new SelectElement(dr.FindElement(By.Name("certificationYear")));
         public IWebElement Add => dr.FindElement(By.XPath("//input[@class='ui teal button']"));
         public IWebElement Alertmessage => dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        public void EditCertificate()
+        public void EditCertificate(CertificationData certifationData)
         {
             Thread.Sleep(3000);
             CertificateTab.Click();
@@ -27,27 +29,28 @@ namespace MarsQA_CompetitionTask2.Pages.Skill
             EditIcon.Click();
             Thread.Sleep(1000);
             CertificateName.Clear();
-            CertificateName.SendKeys("C Sharp");
+            CertificateName.SendKeys(certifationData.Certificate);
             CertificateForm.Clear();
-            CertificateForm.SendKeys("Adobe");
+            CertificateForm.SendKeys(certifationData.CertifiedFrom);
             Thread.Sleep(1000);
-            year.SelectByValue("2018");
+            year.SelectByValue(certifationData.Year);
             Thread.Sleep(3000);
             Add.Click();
             
     }
-        public string EditCertificateWithInvalidInput()
+        public string EditCertificateWithInvalidInput(CertificationData certificationData)
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
             CertificateTab.Click();
             Thread.Sleep(1000);
             EditIcon.Click();
             Thread.Sleep(1000);
             CertificateName.Clear();
-            CertificateName.SendKeys("$####1233546456464564fgfgghdgfsfs*6866()");
+            Thread.Sleep(4000);
+            CertificateName.SendKeys(certificationData.Certificate);
             Thread.Sleep(1000);
             CertificateForm.Clear();
-            CertificateForm.SendKeys("ftdd@Q3Q32323232*##");
+            CertificateForm.SendKeys(certificationData.CertifiedFrom);
             Thread.Sleep(3000);
             Add.Click();
             //storing value of alertmessage

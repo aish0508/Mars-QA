@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b6NtqfvgHUUSNf0InDy77Txb6IalytBC87gCr3slXEOe+hHdfMzNlF/cEmm2CacgweOoY/KwYOwBP/h/tOjmKQ==",
+  "dgSpecHash": "aJDbtR3WrIjGx1ZJs5t1iaji0i5QvZ7jlM8u7vcocKZZRQJ/RzvqA2+jtTy+ljl5r5uqOg/R0Kge9Z2zgmWnQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-CompetitionTask2\\MarsQA-CompetitionTask2\\MarsQA-CompetitionTask2.csproj",
   "expectedPackageFiles": [
@@ -54,7 +54,7 @@
     "C:\\Users\\owner\\.nuget\\packages\\selenium.essentials\\1.0.5.28\\selenium.essentials.1.0.5.28.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\selenium.support\\4.18.1\\selenium.support.4.18.1.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\selenium.webdriver\\4.18.1\\selenium.webdriver.4.18.1.nupkg.sha512",
-    "C:\\Users\\owner\\.nuget\\packages\\selenium.webdriver.chromedriver\\122.0.6261.11100\\selenium.webdriver.chromedriver.122.0.6261.11100.nupkg.sha512",
+    "C:\\Users\\owner\\.nuget\\packages\\selenium.webdriver.chromedriver\\123.0.6312.5800\\selenium.webdriver.chromedriver.123.0.6312.5800.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\sharpziplib.netstandard\\1.0.7\\sharpziplib.netstandard.1.0.7.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
