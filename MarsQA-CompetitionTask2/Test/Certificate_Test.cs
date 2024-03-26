@@ -185,36 +185,7 @@ namespace MarsQA_CompetitionTask2.Test
                         CaptureScreenshot("SpecialCharsCertificationFailed");
                     }
                 }
-                //else
-                //{
-                //    // Verify if special characters are not present in the Certificate
-                //    if (editObj.getCertificate(certificationData.Certificate) == certificationData.Certificate)
-                //    {
-                //        Assert.That(editObj.getCertificate(certificationData.Certificate) == certificationData.Certificate, "Actual certificate and expected certificate do not match");
-                //        Assert.That(editObj.getCertifiedFrom(certificationData.CertifiedFrom) == certificationData.CertifiedFrom, "Actual certifiedFrom and expected certifiedFrom do not match");
-                //        Assert.That(editObj.getYear(certificationData.Year) == certificationData.Year, "Actual year and expected year do not match");
-                //        Console.WriteLine(ActualMessage);
-                //    }
-                //    try
-                //    {
-                //        Assert.That(ActualMessage == "ISTQB has been added to your certification" || actualMessage == "This information is already exist.", "Actual message and expected message do not match");
-                //        test.Log(Status.Pass, "Certification passed");
-                //        // If information already exists, call the cancel method
-                //        if (ActualMessage == "This information is already exist.")
-                //        {
-                //            editObj.getCancel();
-                //        }
-                //    }
-                //    catch (AssertionException ex)
-                //    {
-                //        // Log the failure and capture a screenshot
-                //        test.Log(Status.Fail, "Certification failed: " + ex.Message);
-                //        Console.WriteLine(ActualMessage);
-                //        CaptureScreenshot("CertificationTestFailed");
-                //    }
-                //}
-                //Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
-                //test.Log(Status.Pass, "UpdateCertificateWithInvalidInput passed");
+              
             }
 
 
