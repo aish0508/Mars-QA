@@ -42,43 +42,26 @@ namespace MarsQA_CompetitionTask2.Test
             deleteObj = new Delete();
             
         }
-        [OneTimeSetUp]
-        public static void ExtentStart()
-        {
-            //Create new instance of ExtentReports
-            extent = new ExtentReports();
-            //Create new instance of ExtentSparkReporter
-            var sparkReporter = new ExtentSparkReporter(@"C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-CompetitionTask2\MarsQA-CompetitionTask2\Extent Reports\Education.html");
-            //Attach the ExtentSparkReporter to the ExtentReports
-            extent.AttachReporter(sparkReporter);
-        }
 
-        [SetUp]
-        public void Login()
-        {
+        //[SetUp]
+        //public void SetUp()
+        //{
+        //    Initialize();
+        //    loginobj.LoginActions();
+        //}
 
-
-            //Open Chrome Browser
-            Initialize();
-            // dr = new ChromeDriver();
-            //Maximize the browser
-            //  dr.Manage().Window.Maximize();
-
-            //Login page object initialization and deifinition
-            loginobj.LoginActions();
-        }
         [Test, Order(1), Description("This test is Deleting Education")]
         public void Delete()
         {
-            test = extent.CreateTest("Delete_AllRecords").Info("Test started");
+           
             deleteObj.DeleteEducation();
-            test.Log(Status.Pass, "Delete_AllRecords passed");
+          
         }
 
         [Test, Order(2), Description("This test is adding Education in the profile")]
         public void Education()
         {
-            test = extent.CreateTest("Add_Education").Info("Test started");
+           
             // Profile object initialization and definition
             // Read test data for the AddEducation test case
             List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"AddEducationData.json");
@@ -88,7 +71,7 @@ namespace MarsQA_CompetitionTask2.Test
             {
                 Console.WriteLine(educationData.UniversityName);
                 profileobj.AddEducation(educationData);
-                test.Log(Status.Pass, "Added Education Passed");
+               
             }
 
 
@@ -96,7 +79,7 @@ namespace MarsQA_CompetitionTask2.Test
         [Test, Order(3), Description("This test is verifying by adding duplicate Education ")]
         public void VerifyByDuplicateEducation()
         {
-            test = extent.CreateTest("Update_EducationByAddingDulicateValue ").Info("Test started");
+           
             List<EducationData>educationDataList = EducationDataHelper.ReadEducationData(@"AddExistingEducation.json");
             // Iterate through test data and retrieve AddEducation test data
             foreach (var educationData in educationDataList)
@@ -108,7 +91,7 @@ namespace MarsQA_CompetitionTask2.Test
                 Console.WriteLine("Actual message is :" + ActualMessage);
                 Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
                 Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
-                test.Log(Status.Pass, "Update_Education passed");
+               
 
             }
 
@@ -117,19 +100,19 @@ namespace MarsQA_CompetitionTask2.Test
         [Test, Order(4), Description("This test is validating Empty Scenario")]
         public void ValidateByEmptyScenario()
         {
-            test = extent.CreateTest("EmptyTextbox_Education").Info("Test started");
+           
             string ActualMessage;
             ActualMessage = profileobj.ValidateEmptyScenario();
             string ExpectedMessage = "Please enter all the fields";
             Console.WriteLine("Actual message is :" + ActualMessage);
             Console.WriteLine("Expectedmessage is :" + ExpectedMessage);
             Assert.That(ActualMessage.Equals(ExpectedMessage), "Actual Message and Expected Message do not match");
-            test.Log(Status.Pass, "EmptyTextbox_Education passed");
+           
         }
         [Test ,Order(5),Description("This test is validate Empty Scenario with Entering some field")]
         public void ValidateEmptyScenarioByFillingSomeField()  
         {
-            test = extent.CreateTest("EmptyTextbox_EducationByFillingSomeField").Info("Test started");
+            
             List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EmptyScenarioData.json");
             foreach (var educationData in educationDataList)
             {
@@ -140,20 +123,20 @@ namespace MarsQA_CompetitionTask2.Test
                 Console.WriteLine("Expectedmessage is :" + ExpectedMessage1);
                 Thread.Sleep(1000);
                 Assert.That(ActualMessage1.Equals(ExpectedMessage1), "Actual Message and Expected Message do not match");
-                test.Log(Status.Pass, "EmptyTextbox_Education passed");
+               
             }
                 
         }
         [Test, Order(6), Description("This test is Editing the existing education with Valid Input")]
         public void Edit()
         {
-            test = extent.CreateTest("Edit_Education").Info("Test started");
+            
             List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EditEducation.json");
             foreach (var educationData in educationDataList)
             {
                 //Update Education
                 editObj.EditEducation(educationData);
-                test.Log(Status.Pass, "Edit_Education passed");
+                
             }
 
 
@@ -162,7 +145,7 @@ namespace MarsQA_CompetitionTask2.Test
         [Test , Order(7),Description("This test is editing the exiting education with Invalid Input")]
         public void  EditEducationWithInvalid()
         {
-            test = extent.CreateTest("Edit_EducationWithInvalidInput").Info("Test started");
+          
             List<EducationData> educationDataList = EducationDataHelper.ReadEducationData(@"EditEducationWithInvalid .json");
             foreach (var educationData in educationDataList)
             {
@@ -200,12 +183,12 @@ namespace MarsQA_CompetitionTask2.Test
 
         }
 
-        [OneTimeTearDown]
-        public static void ExtentClose()
-        {
-            //Flush the ExtentReports instance
-            extent.Flush();
-        }
+        //[OneTimeTearDown]
+        //public static void ExtentClose()
+        //{
+        //    //Flush the ExtentReports instance
+        //    extent.Flush();
+        //}
     }
 }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarsQA-CompetitionTask2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a03b8486e533e555a91dd6fefa5f2e6fb17b919")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b57e594320c832532c6f64fa7d6f4e0c4422955")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarsQA-CompetitionTask2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarsQA-CompetitionTask2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
