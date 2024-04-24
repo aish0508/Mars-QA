@@ -1,0 +1,8 @@
+[
+  {
+    "Id": 1,
+    "Skill": "Java",
+    "SkillLevel": "Intermediate",
+    "ExpectedMessage": "Java has been deleted"
+  }
+]
