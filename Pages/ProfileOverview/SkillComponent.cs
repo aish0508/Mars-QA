@@ -61,7 +61,8 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             try
             {
                 skillTextBox = dr.FindElement(By.XPath("//input[@name='name']"));
-                skillLevel = dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td/div/div[2]/select"));
+                Wait.WaitToBeClickable(dr, "XPath", "//select[@name='level']", 12);
+                skillLevel = dr.FindElement(By.XPath("//select[@name='level']"));
                 updateButton = dr.FindElement(By.XPath("//input[@value='Update']"));
             }
             catch(Exception ex)
@@ -110,20 +111,19 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             Thread.Sleep(5000);
             return message;
         }
-        public void updateSkill(SkillData newSkillData)
+        public void updateSkill(SkillData skillData)
         {
             renderUpdateComponent();
             Thread.Sleep(1000);
             skillTextBox.Clear();
             Thread.Sleep(1000);
-            skillTextBox.SendKeys(newSkillData.Skill);
-            //Thread.Sleep(1000);
-            ////Wait.WaitToBeClickable(dr, "Xpath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td/div/div[2]/select", 10);
-            //Thread.Sleep(8000);
-            //SelectElement SkillLevel= new SelectElement(skillLevel);
-            //Thread.Sleep(1000);
-            //SkillLevel.SelectByValue(newSkillData.SkillLevel);
-            //Thread.Sleep(3000);
+            skillTextBox.SendKeys(skillData.Skill);
+            Wait.WaitToBeClickable(dr, "Xpath", "//select[@name='level']", 10);
+            SelectElement SkillLevel = new SelectElement(skillLevel);
+            Thread.Sleep(1000);
+            Wait.WaitToBeClickable(dr, "XPath", "//select[@name='level']", 12);
+            SkillLevel.SelectByValue(skillData.SkillLevel);
+            Thread.Sleep(3000);
             updateButton.Click();
             Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 4);
         }

@@ -48,22 +48,35 @@ namespace AdvancedTaskPart1.Steps
                 Console.WriteLine(actualMessage);
             }
         }
-        public void updateSkill(int id )
+        //public void updateSkill(int id)
+        //{
+        //    Read skill data from the specified JSON file and retrieve the item with a matching Id
+        //    SkillData existingSkillData = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
+        //    SkillData newSkillData = JsonReader.LoadData<SkillData>(@"updateSkillData.json").FirstOrDefault(x => x.Id == id);
+        //    profileSkillOverviewComponent.clickUpdateSkillButton(existingSkillData);
+        //    Console.WriteLine(existingSkillData);
+        //    skillComponent.updateSkill(newSkillData);
+        //    string actualMessage = skillComponent.getMesssage();
+        //    Console.WriteLine($"{actualMessage}");
+        //    Thread.Sleep(3000);
+        //    SkillAssertHelper.assertUpdateSkillSucessMessage(newSkillData.ExpectedMessage, actualMessage);
+        //    Console.WriteLine(newSkillData.ExpectedMessage);
+        //    Console.WriteLine(actualMessage);
+        //}
+        public void updateSkill(int id)
         {
-            // Read skill data from the specified JSON file and retrieve the item with a matching Id
-            SkillData existingSkillData = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
-            SkillData newSkillData = JsonReader.LoadData<SkillData>(@"updateSkillData.json").FirstOrDefault(x => x.Id == id);
-            profileSkillOverviewComponent.clickUpdateSkillButton(existingSkillData);
-            Console.WriteLine(existingSkillData);
-            skillComponent.updateSkill(newSkillData);
-            string actualMessage = skillComponent.getMesssage();
-            Console.WriteLine($"{actualMessage}");
-            Thread.Sleep(3000);
-            SkillAssertHelper.assertUpdateSkillSucessMessage(newSkillData.ExpectedMessage, actualMessage);
-            Console.WriteLine(newSkillData.ExpectedMessage);
-            Console.WriteLine(actualMessage);
+            List<SkillData> skillDataList = JsonReader.LoadData<SkillData>(@"updateSkillData.json");
+            foreach(var SkillData in skillDataList)
+            {
+                profileSkillOverviewComponent.clickUpdateSkillButton(SkillData);
+                skillComponent.updateSkill(SkillData);  
+                Thread.Sleep(1000);
+                String actualMessage=skillComponent.getMesssage();
+                SkillAssertHelper.assertUpdateSkillSucessMessage(SkillData.ExpectedMessage,actualMessage);
+                Console.WriteLine(actualMessage);
+            }
         }
-             
+
         public void emptySkill()
         {
             // Read test data for the emptySkill test case

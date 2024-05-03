@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj": {}
+    "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj": {
+    "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj",
+        "projectUniqueName": "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj",
         "projectName": "AdvancedTaskPart1",
-        "projectPath": "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\obj\\",
+        "projectPath": "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\AdvancedTaskPart1.csproj",
+        "packagesPath": "C:\\Users\\4ezis\\.nuget\\packages\\",
+        "outputPath": "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\4ezis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -34,11 +34,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "DotNetSeleniumExtras.WaitHelpers": {
               "target": "Package",
@@ -121,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

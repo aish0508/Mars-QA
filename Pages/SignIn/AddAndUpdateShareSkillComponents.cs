@@ -104,8 +104,8 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
-                Wait.WaitToBeVisible(dr, "Name", "title", 7);
-                Title = dr.FindElement(By.Name("title"));
+                Wait.WaitToBeVisible(dr, "XPath", "//input[@name='title']", 10);
+                Title = dr.FindElement(By.XPath("//input[@name='title']"));
                 Description = dr.FindElement(By.Name("description"));
                 StartDate = dr.FindElement(By.XPath("//input[@placeholder='Start date']"));
                 EndDate = dr.FindElement(By.XPath("//input[@placeholder='End date']"));
@@ -168,7 +168,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         public void updateShareSkill(ShareSkillData shareSkillData)
         {
             renderUpdateComponent();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             Title.Clear();
             Thread.Sleep(3000);
             Title.SendKeys(shareSkillData.Title);

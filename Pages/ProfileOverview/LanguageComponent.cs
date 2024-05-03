@@ -25,7 +25,7 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             try
             {
                 Thread.Sleep(4000);
-                deleteButtons = dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+                deleteButtons = dr.FindElement(By.XPath("//i[@class='remove icon']"));
                 
             }
             catch (Exception ex)

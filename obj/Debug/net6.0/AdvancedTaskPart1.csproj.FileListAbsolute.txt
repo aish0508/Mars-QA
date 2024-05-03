@@ -157,3 +157,6 @@ C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-Advanced Task\Advanced Task Par
 C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\AdvancedTaskPart1.pdb
 C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\AdvancedTaskPart1.genruntimeconfig.cache
 C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\ref\AdvancedTaskPart1.dll
+D:\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\AdvancedTaskPart1.dll
+D:\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\refint\AdvancedTaskPart1.dll
+D:\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\obj\Debug\net6.0\AdvancedTaskPart1.pdb

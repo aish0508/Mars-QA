@@ -47,7 +47,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
-                Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']", 8);
+                Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']", 12);
                 UpdateButton = dr.FindElement(By.XPath($"//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']"));
             }
             catch (Exception ex)
@@ -60,6 +60,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
+                Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 12);
                 DeleteButton = dr.FindElement(By.XPath($"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']"));
             }
             catch (Exception ex)
@@ -98,7 +99,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
             try
             {
                 // Wait for the element to be clickable
-                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(30));
+                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(60));
                 IWebElement button = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//td[text()='Playwright']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']")));
 
                 // Click the button
@@ -118,7 +119,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
             string title = shareskilldata.Title;
             Thread.Sleep(4000);
             renderDeleteButton(title);
-            Wait.WaitToBeVisible(dr, "XPath", $"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 8);
+            Wait.WaitToBeVisible(dr, "XPath", $"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 12);
             DeleteButton.Click();
             Thread.Sleep(1000);
             renderYesButton();

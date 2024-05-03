@@ -28,7 +28,7 @@ namespace AdvancedTaskPart1.Utilits
             if (extent == null)
             {
                 extent = new ExtentReports();
-                var SparkReporter = new ExtentSparkReporter(@"C:\Users\owner\OneDrive\Documents\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\ExtentReport\\Extent.html");
+                var SparkReporter = new ExtentSparkReporter(@"D:\Mars-QA\MarsQA-Advanced Task\Advanced Task Part1\AdvancedTaskPart1\AdvancedTaskPart1\ExtentReport\\Extent.html");
                 extent.AttachReporter(SparkReporter);
             }
         }
@@ -52,7 +52,7 @@ namespace AdvancedTaskPart1.Utilits
             {
                 string testName = TestContext.CurrentContext.Test.Name;
                 test.Log(Status.Fail, $"Tests  '{testName}' failed");
-                //  CaptureScreenshot(testName);
+                CaptureScreenshot(testName);
             }
 
 
@@ -69,7 +69,7 @@ namespace AdvancedTaskPart1.Utilits
             string screenshotFileName = $"screenshot_{testName}";
             ITakesScreenshot ts = (ITakesScreenshot)dr;
             Screenshot screenshot = ts.GetScreenshot();
-            string filePath = "C:\\Users\\owner\\OneDrive\\Documents\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\Screenshot";
+            string filePath = "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\Screenshot";
             string screenshotPath = Path.Combine(filePath, $"{screenshotFileName}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
             screenshot.SaveAsFile(screenshotPath);
         }

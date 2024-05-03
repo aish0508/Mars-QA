@@ -54,12 +54,12 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             renderAddButton();
             addNewButton.Click();
         }
-        public void clickUpdateSkillButton(SkillData existingSkillData)
+        public void clickUpdateSkillButton(SkillData skillData)
         {
-            string existingSkill = existingSkillData.Skill;
-            string existingSkilllevel=existingSkillData.SkillLevel;
+            string NewSkill = skillData.Skill;
+            string NewSkilllevel=skillData.SkillLevel;
             Thread.Sleep(1000);
-            renderUpdateButton(existingSkill, existingSkilllevel);
+            renderUpdateButton(NewSkill, NewSkilllevel);
             UpdateButton.Click();
         }
         public void clickDeleteSkillButton(SkillData skillData)
