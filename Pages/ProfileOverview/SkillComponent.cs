@@ -114,18 +114,16 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         public void updateSkill(SkillData skillData)
         {
             renderUpdateComponent();
-            Thread.Sleep(1000);
+           // Thread.Sleep(1000);
             skillTextBox.Clear();
-            Thread.Sleep(1000);
+           // Thread.Sleep(1000);
             skillTextBox.SendKeys(skillData.Skill);
-            Wait.WaitToBeClickable(dr, "Xpath", "//select[@name='level']", 10);
             SelectElement SkillLevel = new SelectElement(skillLevel);
-            Thread.Sleep(1000);
-            Wait.WaitToBeClickable(dr, "XPath", "//select[@name='level']", 12);
+            
             SkillLevel.SelectByValue(skillData.SkillLevel);
-            Thread.Sleep(3000);
+           // Thread.Sleep(3000);
             updateButton.Click();
-            Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 4);
+            Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 6);
         }
     }
 }

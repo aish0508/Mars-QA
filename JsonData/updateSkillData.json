@@ -2,8 +2,8 @@
   {
     "id": 1,
     "skill": "Smoke Testing",
-    "level": "Expert",
-    "Expected Message": "Smoke Testing has been updated to your skills"
+    "SkillLevel": "Expert",
+    "ExpectedMessage": "Smoke Testing has been updated to your skills"
 
   }
 ]

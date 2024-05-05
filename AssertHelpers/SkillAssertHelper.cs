@@ -14,7 +14,7 @@ namespace AdvancedTaskPart1.AssertHelpers
         }
         public static void assertUpdateSkillSucessMessage(string expected, string actual)
         {
-            Thread.Sleep(1000);
+           
             Assert.That(expected == actual, "Actual message and Expected message do not match");
         }
         public static void assertEmptySkillSucessMessage(string expected, string actual)

@@ -72,8 +72,9 @@ namespace AdvancedTaskPart1.Steps
                 skillComponent.updateSkill(SkillData);  
                 Thread.Sleep(1000);
                 String actualMessage=skillComponent.getMesssage();
-                SkillAssertHelper.assertUpdateSkillSucessMessage(SkillData.ExpectedMessage,actualMessage);
                 Console.WriteLine(actualMessage);
+                SkillAssertHelper.assertUpdateSkillSucessMessage(SkillData.ExpectedMessage,actualMessage);
+                Console.WriteLine(SkillData.ExpectedMessage);
             }
         }
 
