@@ -2,6 +2,7 @@
 using AdvancedTaskPart1.Utilits;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using RazorEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,10 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         {
             try
             {
-                Thread.Sleep(4000);
-                deleteButtons = dr.FindElement(By.XPath("//i[@class='remove icon']"));
-                
+
+                deleteButtons = dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+
+
             }
             catch (Exception ex)
             {
@@ -73,10 +75,28 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             }
 
         }
+
+       
+
         public void DeleteAllRecords()
         {
-           
+            //try
+            //{
+            //    Wait.WaitToBeClickable(dr, "XPath", "//div[@data-tab='first']//i[@class='remove icon']", 4);
+            //}
+            //catch (WebDriverTimeoutException e)
+            //{
+            //    return;
+            //}
             //renderDeleteAllRecordsComponents();
+            ////Delete all records in the list
+            //foreach (IWebElement deleteButton in deleteButtons)
+
+
+            //{
+            //    deleteButton.Click();
+            //}
+          
             //Delete all records in the list
             int rowcount = dr.FindElements(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody")).Count;
             for (int i = 1; i <= rowcount;)
@@ -84,7 +104,15 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             {
                 Thread.Sleep(3000);
                 renderDeleteAllRecordsComponents();
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
+                try
+                {
+                    Wait.WaitToBeClickable(dr, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i", 8);
+                }
+                catch (WebDriverTimeoutException e)
+                {
+                    return;
+                }
                 deleteButtons.Click();
                 Thread.Sleep(1000);
                 rowcount--;

@@ -121,7 +121,7 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             SelectElement SkillLevel = new SelectElement(skillLevel);
             
             SkillLevel.SelectByValue(skillData.SkillLevel);
-           // Thread.Sleep(3000);
+          
             updateButton.Click();
             Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 6);
         }

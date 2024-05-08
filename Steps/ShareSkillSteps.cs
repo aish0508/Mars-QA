@@ -50,7 +50,8 @@ namespace AdvancedTaskPart1.Steps
             shareSkillOverviewComponent.clickManageListing();
             shareSkillOverviewComponent.clickDeleteButton(shareSkillData);
             string actualMessage = AddAndUpdateShareSkillComponents.getMessage();
-            ShareSkillAssertHelper.assertDeleteShareSkillSuccessMessage("API Testing has been deleted", actualMessage);
+            Console.WriteLine(actualMessage);
+            ShareSkillAssertHelper.assertDeleteShareSkillSuccessMessage("Playwright has been deleted", actualMessage);
             Console.WriteLine(actualMessage);
         }
     }

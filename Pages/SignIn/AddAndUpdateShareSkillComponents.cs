@@ -36,7 +36,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try 
             { 
-                Title = dr.FindElement(By.Name("title")); 
+                Title = dr.FindElement(By.XPath("//input[@name='title']")); 
                 Description= dr.FindElement(By.Name("description"));
                 Tags = dr.FindElement(By.XPath("//*[@id='service-listing-section']/div[2]/div/form/div[4]/div[2]/div[1]/div/div/div/input"));
                 ServiceType = dr.FindElement(By.Name("serviceType"));
@@ -104,7 +104,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
-                Wait.WaitToBeVisible(dr, "XPath", "//input[@name='title']", 10);
+                Wait.WaitToBeVisible(dr, "XPath", "//input[@name='title']", 12);
                 Title = dr.FindElement(By.XPath("//input[@name='title']"));
                 Description = dr.FindElement(By.Name("description"));
                 StartDate = dr.FindElement(By.XPath("//input[@placeholder='Start date']"));
@@ -132,7 +132,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         public void addShareSkills(ShareSkillData shareSkillData)
         {
             renderAddComponents();
-            Thread.Sleep(4000);
+            Thread.Sleep(5000);
             Title.SendKeys(shareSkillData.Title);
             Description.SendKeys(shareSkillData.Description);
             renderCategory();

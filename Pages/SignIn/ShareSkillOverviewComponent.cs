@@ -47,7 +47,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
-                Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']", 12);
+                //Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']", 16);
                 UpdateButton = dr.FindElement(By.XPath($"//td[text()='{existingTitle}']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']"));
             }
             catch (Exception ex)
@@ -60,8 +60,8 @@ namespace AdvancedTaskPart1.Pages.SignIn
         {
             try
             {
-                Wait.WaitToBeVisible(dr, "XPath", "//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 12);
-                DeleteButton = dr.FindElement(By.XPath($"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']"));
+                
+                DeleteButton = dr.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[3]/i"));
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
             try
             {
                 // Wait for the element to be clickable
-                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(60));
+                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(80));
                 IWebElement button = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//td[text()='Playwright']/following-sibling::td/div/button[@class='ui button']/i[@class='outline write icon']")));
 
                 // Click the button
@@ -112,14 +112,14 @@ namespace AdvancedTaskPart1.Pages.SignIn
                 // Optionally, rethrow the exception if you want to propagate it further
                 throw;
             }
-            //UpdateButton.Click();
+           // UpdateButton.Click();
         }
         public void clickDeleteButton(ShareSkillData shareskilldata)
         {
             string title = shareskilldata.Title;
             Thread.Sleep(4000);
             renderDeleteButton(title);
-            Wait.WaitToBeVisible(dr, "XPath", $"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 12);
+           // Wait.WaitToBeVisible(dr, "XPath", $"//td[text()='{title}']/following-sibling::td/div/button[@class='ui button']/i[@class='remove icon']", 18);
             DeleteButton.Click();
             Thread.Sleep(1000);
             renderYesButton();

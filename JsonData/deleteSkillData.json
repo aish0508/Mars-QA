@@ -1,8 +1,8 @@
 [
   {
     "Id": 1,
-    "Skill": "Java",
-    "SkillLevel": "Intermediate",
-    "ExpectedMessage": "Java has been deleted"
+    "Skill": "Smoke Testing",
+    "SkillLevel": "Beginner",
+    "ExpectedMessage": "Smoke Testing has been deleted"
   }
 ]

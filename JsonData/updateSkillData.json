@@ -2,7 +2,7 @@
   {
     "id": 1,
     "skill": "Smoke Testing",
-    "SkillLevel": "Expert",
+    "SkillLevel": "Beginner",
     "ExpectedMessage": "Smoke Testing has been updated to your skills"
 
   }
