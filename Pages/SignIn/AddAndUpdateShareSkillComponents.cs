@@ -16,7 +16,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
     {
         private IWebElement Title;
         private IWebElement Description;
-        private IWebElement Category;
+      //  private IWebElement Category;
         private IWebElement Tags;
         private IWebElement ServiceType;
         private IWebElement LocationType;

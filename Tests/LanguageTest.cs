@@ -34,26 +34,30 @@ namespace AdvancedTaskPart1.Tests
             Thread.Sleep(1000);
             profileMenuTabComponents.clickLanguageTab();
         }
-        [Test, Order(1), Description("This test is deleting all records in language list")]
-        public void Delete_All_Records()
-        {
-            languageComponent.DeleteAllRecords();
-        }
+        
 
         [Test, Order(2), Description("This test is adding language in the language list")]
-        public void Add_Language()
+        [TestCase(1)]
+        [TestCase(2)]
+        public void AddandDelete_Language(int id)
         {
-            languageSteps.addLanguage();
+            languageComponent.DeleteAllRecords();
+            languageSteps.AddAndDeleteLanguage(id);
+            
+            
         }
         [Test, Order(3), Description("This test is adding empty textbox in the language list")]
         public void EmptyTextbox_Language()
         {
+            languageComponent.DeleteAllRecords();
             languageSteps.emptyLanguage();
         }
         [Test, Order(4), Description("This test is adding exists language in the language list")]
-        public void Exists_Language()
+        [TestCase(1)]
+        public void Exists_Language(int id)
         {
-            languageSteps.DuplicateLanguage();
+            languageComponent.DeleteAllRecords();
+            languageSteps.DuplicateLanguage(id);
         }
 
 
@@ -61,20 +65,18 @@ namespace AdvancedTaskPart1.Tests
         [TestCase(1)]
         public void Update_Language(int id)
         {
+            languageComponent.DeleteAllRecords();
             languageSteps.updateLanguage(id);
+            
         }
                    
        [Test, Order(6), Description("This test is adding special characters in the language list")]
         public void SpecialCharacters_Language()
         {
+            languageComponent.DeleteAllRecords();
             languageSteps.specialCharactersLanguage();
         }
-        [Test, Order(7), Description("This test is deleting an existing language in the language list")]
-        [TestCase(1)]
-        public void Delete_Language(int id)
-        {
-            languageSteps.deleteLanguage(id);
-        }
+        
 
     }
 }

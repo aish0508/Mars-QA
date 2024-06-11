@@ -31,36 +31,59 @@ namespace AdvancedTaskPart1.Steps
             loginObj.LoginActions();
             profileMenuTabComponents.clickSkillTab();
         }
-        public void addSkill()
+        public void AddandDeleteSkill(int id)
         {
             //Read test data for the add skill testcase
-            List<SkillData> skillDataList = JsonReader.LoadData<SkillData>(@"addSkillData.json");
+            SkillData skillData1 = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
+            Thread.Sleep(2000);
             // Iterate through test data and retrieve AddSkill test data
-            foreach(var SkillData in skillDataList)
-            {
                 profileSkillOverviewComponent.clickAddSkillButton();
-                skillComponent.AddSkillsComponent(SkillData);
+                skillComponent.AddSkillsComponent(skillData1);
                 Thread.Sleep(1000);
+                string actualMessage1 = skillComponent.getMesssage();
+                Console.WriteLine(actualMessage1);
+                Thread.Sleep(1000);
+                SkillAssertHelper.assertAddSkillSucessMessage(skillData1.ExpectedMessage, actualMessage1);
+                Console.WriteLine(actualMessage1);
+                // Read skill data from the specified JSON file and retrieve the item with a matching Id
+                SkillData skillData = JsonReader.LoadData<SkillData>(@"deleteSkillData.json").FirstOrDefault(x => x.Id == id);
+                profileSkillOverviewComponent.clickDeleteSkillButton(skillData);
                 string actualMessage = skillComponent.getMesssage();
+                SkillAssertHelper.assertDeleteSkillSucessMessage(skillData.ExpectedMessage, actualMessage);
                 Console.WriteLine(actualMessage);
-                Thread.Sleep(1000);
-                SkillAssertHelper.assertAddSkillSucessMessage(SkillData.ExpectedMessage, actualMessage);
-                Console.WriteLine(actualMessage);
-            }
+
+            
         }
        public void updateSkill(int id)
         {
-            List<SkillData> skillDataList = JsonReader.LoadData<SkillData>(@"updateSkillData.json");
-            foreach(var SkillData in skillDataList)
-            {
-                profileSkillOverviewComponent.clickUpdateSkillButton(SkillData);
-                skillComponent.updateSkill(SkillData);  
+            //Read test data for the add skill testcase
+            SkillData skillData1 = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
+            Thread.Sleep(2000);
+            // Iterate through test data and retrieve AddSkill test data
+            profileSkillOverviewComponent.clickAddSkillButton();
+            skillComponent.AddSkillsComponent(skillData1);
+            Thread.Sleep(1000);
+            string actualMessage1 = skillComponent.getMesssage();
+            Console.WriteLine(actualMessage1);
+            Thread.Sleep(1000);
+            SkillAssertHelper.assertAddSkillSucessMessage(skillData1.ExpectedMessage, actualMessage1);
+            Console.WriteLine(actualMessage1);
+            SkillData existingSkillData = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
+            SkillData newSkillData = JsonReader.LoadData<SkillData>(@"updateSkillData.json").FirstOrDefault(x => x.Id == id);
+                            
+                profileSkillOverviewComponent.clickUpdateSkillButton(existingSkillData);
+                skillComponent.updateSkill(newSkillData);  
                 Thread.Sleep(1000);
-                String actualMessage=skillComponent.getMesssage();
-                Console.WriteLine(actualMessage);
-                SkillAssertHelper.assertUpdateSkillSucessMessage(SkillData.ExpectedMessage,actualMessage);
-                Console.WriteLine(SkillData.ExpectedMessage);
-            }
+                String actualMessage2=skillComponent.getMesssage();
+                Console.WriteLine(actualMessage2);
+                SkillAssertHelper.assertUpdateSkillSucessMessage(newSkillData.ExpectedMessage,actualMessage2);
+                Console.WriteLine(newSkillData.ExpectedMessage);
+            //            // Read skill data from the specified JSON file and retrieve the item with a matching Id
+            //SkillData skillData = JsonReader.LoadData<SkillData>(@"deleteSkillData.json").FirstOrDefault(x => x.Id == id);
+            //profileSkillOverviewComponent.clickDeleteSkillButton(skillData);
+            //string actualMessage = skillComponent.getMesssage();
+            //SkillAssertHelper.assertDeleteSkillSucessMessage(skillData.ExpectedMessage, actualMessage);
+            //Console.WriteLine(actualMessage);
         }
 
         public void emptySkill()
@@ -77,13 +100,18 @@ namespace AdvancedTaskPart1.Steps
                 Console.WriteLine(actualMessage);
             }
         }
-        public void duplicateAddSkill()
+        public void duplicateAddSkill(int id)
         {
+            SkillData skillData1 = JsonReader.LoadData<SkillData>(@"addSkillData.json").FirstOrDefault(x => x.Id == id);
             // Read test data for the existsSkill test case
             List<SkillData> skillDataList = JsonReader.LoadData<SkillData>(@"exitsSkillData.json");
             // Iterate through test data and retrieve existsSkill test data
             foreach (var skillData in skillDataList)
             {
+                profileSkillOverviewComponent.clickAddSkillButton();
+                skillComponent.AddSkillsComponent(skillData);
+                string actualMessage1=skillComponent.getMesssage();
+                Thread.Sleep(1000);
                 profileSkillOverviewComponent.clickAddSkillButton();
                 skillComponent.AddSkillsComponent(skillData);
                 string actualMessage = skillComponent.getMesssage();
@@ -105,14 +133,6 @@ namespace AdvancedTaskPart1.Steps
                 Console.WriteLine(actualMessage);
             }
         }
-        public void deleteSkill(int id)
-        {
-            // Read skill data from the specified JSON file and retrieve the item with a matching Id
-            SkillData skillData = JsonReader.LoadData<SkillData>(@"deleteSkillData.json").FirstOrDefault(x => x.Id == id);
-            profileSkillOverviewComponent.clickDeleteSkillButton(skillData);
-            string actualMessage = skillComponent.getMesssage();
-            SkillAssertHelper.assertDeleteSkillSucessMessage(skillData.ExpectedMessage, actualMessage);
-            Console.WriteLine(actualMessage);
-        }
+        
     }
 }

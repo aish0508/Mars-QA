@@ -11,9 +11,9 @@ namespace AdvancedTaskPart1.Utilits
     {
         public static List<T> LoadData<T>(string jsonFileName)
         {
-            string currentDirectory = "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1";
+            string currentDirectory = "D:\\Mars-QA-Advanced\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1";
             string filePath = Path.Combine(currentDirectory, "JsonData", jsonFileName);
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             using (StreamReader reader = new StreamReader(filePath))
             {
                 var jsonContent = reader.ReadToEnd();

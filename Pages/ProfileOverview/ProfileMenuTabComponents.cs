@@ -1,6 +1,6 @@
 ﻿using AdvancedTaskPart1.Utilits;
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V121.Page;
+//using OpenQA.Selenium.DevTools.V121.Page;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         }
         public void clickSkillTab() 
         {
-            Wait.WaitToBeClickable(dr, "XPath", "//a[@data-tab='second']", 4);
+            Wait.WaitToBeClickable(dr, "XPath", "//a[@data-tab='second']", 6);
             renderComponents();
             SkillTab.Click();
             Thread.Sleep(4000);

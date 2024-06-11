@@ -66,9 +66,10 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         {
             string skill = skillData.Skill;
             string skillLevel =skillData.SkillLevel;
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             renderDeleteButton(skill, skillLevel);
-            Thread.Sleep(4000);
+           // Thread.Sleep(7000);
+           // Wait.WaitToBeClickable(dr,"XPath", $"//div[@data-tab='second']//tr[td[1]='{skill}' and td[2]='{skillLevel}']//td[last()]/span[2]",4);
             DeleteButton.Click();
             Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 4);
 

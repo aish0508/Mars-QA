@@ -18,7 +18,7 @@ namespace AdvancedTaskPart1.Utilits
         public static IWebDriver dr;
         public static ExtentReports extent;
         public static ExtentTest test;
-        Login loginObj;
+     //   Login loginObj;
 
 
         [OneTimeSetUp]
@@ -69,7 +69,7 @@ namespace AdvancedTaskPart1.Utilits
             string screenshotFileName = $"screenshot_{testName}";
             ITakesScreenshot ts = (ITakesScreenshot)dr;
             Screenshot screenshot = ts.GetScreenshot();
-            string filePath = "D:\\Mars-QA\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\Screenshot";
+            string filePath = "D:\\Mars-QA-Advanced\\MarsQA-Advanced Task\\Advanced Task Part1\\AdvancedTaskPart1\\AdvancedTaskPart1\\Screenshot";
             string screenshotPath = Path.Combine(filePath, $"{screenshotFileName}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
             screenshot.SaveAsFile(screenshotPath);
         }

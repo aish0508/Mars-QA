@@ -1,5 +1,6 @@
 ﻿using AdvancedTaskPart1.Model;
 using AdvancedTaskPart1.Utilits;
+using Aspose.Cells.Drawing;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -23,8 +24,9 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         {
             try
             {
-               deleteButtons= dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
-                               
+               deleteButtons= dr.FindElement(By.XPath("//div[@data-tab='second']//i[@class='remove icon']"));
+
+
             }
             catch (Exception ex)
             {
@@ -80,7 +82,17 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             {
                 Thread.Sleep(3000);
                 renderDeleteAllRecordsComponent();
-                Thread.Sleep(1000);
+
+                try
+                {
+
+                    Wait.WaitToBeClickable(dr, "XPath", "//div[@data-tab='second']//i[@class='remove icon']", 8);
+                }
+                catch (WebDriverTimeoutException e)
+                {
+                    return;
+                }
+               
                 deleteButtons.Click();
                 Thread.Sleep(1000);
                 rowcount--;

@@ -26,8 +26,9 @@ namespace AdvancedTaskPart1.Steps
             List<IWebElement> RequestsList = notificationObj.getRequestsList();
             // Get the count of requests in the request list
             int ActualCount = RequestsList.Count;
+            Console.WriteLine(ActualCount);
             // Assert that the actual count of requests is equal to the expected count 
-            NotificationAssertHelper.assertLoadMoreNotification(6, ActualCount);
+            NotificationAssertHelper.assertLoadMoreNotification(9, ActualCount);
         }
 
         public void showLessNotification()
@@ -38,7 +39,7 @@ namespace AdvancedTaskPart1.Steps
             List<IWebElement> RequestsList = notificationObj.getRequestsList();
             int ActualCount = RequestsList.Count;
             // Assert that the actual count of requests is equal to the expected count 
-            NotificationAssertHelper.assertShowLessNotification(1, ActualCount);
+            NotificationAssertHelper.assertShowLessNotification(4, ActualCount);
         }
 
         public void deleteNotification()

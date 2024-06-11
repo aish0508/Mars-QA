@@ -54,8 +54,9 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         }
         public void clickAddLanguageButton()
         {
+            //Thread.Sleep(11000);
             renderAddButton();
-            Thread.Sleep(3000);
+           // Thread.Sleep(3000);
             AddNewButton.Click();
         }
 

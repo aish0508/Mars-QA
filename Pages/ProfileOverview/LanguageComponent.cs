@@ -21,13 +21,13 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         private IWebElement successMessage;
         private IWebElement closeMessageIcon;
         private IWebElement UpdateNewButton;
+        
         public void renderDeleteAllRecordsComponents()
         {
             try
             {
 
                 deleteButtons = dr.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
-
 
             }
             catch (Exception ex)
@@ -52,12 +52,15 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         {
             try
             {
+               // WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(12));
                 successMessage = dr.FindElement(By.XPath("//div[@class='ns-box-inner']"));
                 closeMessageIcon = dr.FindElement(By.XPath("//*[@class='ns-close']"));
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                // Optionally, throw an exception or handle it appropriately
+               // throw;
             }
 
         }
@@ -82,7 +85,7 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
         {
             //try
             //{
-            //    Wait.WaitToBeClickable(dr, "XPath", "//div[@data-tab='first']//i[@class='remove icon']", 4);
+            //    Wait.WaitToBeClickable(dr, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i", 4);
             //}
             //catch (WebDriverTimeoutException e)
             //{
@@ -96,18 +99,19 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
             //{
             //    deleteButton.Click();
             //}
-          
-            //Delete all records in the list
+
+           // Delete all records in the list
             int rowcount = dr.FindElements(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody")).Count;
             for (int i = 1; i <= rowcount;)
 
             {
-                Thread.Sleep(3000);
+                
                 renderDeleteAllRecordsComponents();
-                //Thread.Sleep(1000);
+
                 try
                 {
-                    Wait.WaitToBeClickable(dr, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i", 8);
+
+                    Wait.WaitToBeClickable(dr, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i", 12);
                 }
                 catch (WebDriverTimeoutException e)
                 {
@@ -120,24 +124,38 @@ namespace AdvancedTaskPart1.Pages.ProfileOverview
 
             }
         }
+      
+        
         public void addLanguage(LanguageData languageData)
         {
+            //Thread.Sleep(4000);
             renderAddComponents();
-            Thread.Sleep(2000);
             LanguageTextBox.SendKeys(languageData.Language);
+            Thread.Sleep(3000);
             SelectElement chooseLanguageLevel = new SelectElement(languageLevel);
+            Thread.Sleep(3000);
             chooseLanguageLevel.SelectByValue(languageData.LanguageLevel);
+            Thread.Sleep(3000);
             AddButton.Click();
             Wait.WaitToBeVisible(dr, "XPath", "//div[@class='ns-box-inner']", 4);
         }
+        
 
         public string getMessage()
         {
+            Thread.Sleep(1000);
             renderAddMessage();
+            Thread.Sleep(1000);
+            
+            //if (successMessage == null)
+            //{
+            //    throw new NullReferenceException("Success message element not found.");
+            //}
             string message = successMessage.Text;
             closeMessageIcon.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(5000);
             return message;
+            
         }
 
         public void updateLanguage(LanguageData newLanguageData)

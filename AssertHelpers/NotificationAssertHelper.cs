@@ -10,6 +10,7 @@ namespace AdvancedTaskPart1.AssertHelpers
     {
         public static void assertLoadMoreNotification(int expected, int actual)
         {
+            
             Assert.That(expected == actual, "After clicking 'LoadMore', number of requests is not equal to original count");
         }
 

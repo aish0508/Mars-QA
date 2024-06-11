@@ -28,7 +28,7 @@ namespace AdvancedTaskPart1.Pages.SignIn
             //user write email address
             Email.SendKeys("aisharya994@gmail.com");
             //user write password
-            Password.SendKeys("Aish@123");
+            Password.SendKeys("Aish@13");
             //User click on login button 
             LoginButton.Click();
         }
