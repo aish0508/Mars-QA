@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Skill": "Java",
+    "SkillLevel": "Intermediate",
+    "ExpectedMessage": "Java has been deleted"
+  },
+  {
+    "Id": 2,
+    "Skill": "API Testing",
+    "SkillLevel": "Expert",
+    "ExpectedMessage": "API Testing has been deleted"
+  },
+  {
+    "Id": 3,
+    "Skill": "Cucumber",
+    "SkillLevel": "Beginner",
+    "ExpectedMessage": "Cucumber has been deleted"
+  }
+]

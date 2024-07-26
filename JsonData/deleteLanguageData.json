@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "Language": "Spanish",
+    "LanguageLevel": "Basic",
+    "ExpectedMessage": "Spanish has been deleted from your languages"
+  },
+  {
+    "Id": 2,
+    "Language": "English",
+    "LanguageLevel": "Fluent",
+    "ExpectedMessage": "English has been deleted from your languages"
+  }
+]
